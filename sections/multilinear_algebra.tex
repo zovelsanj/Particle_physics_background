@@ -1,0 +1,207 @@
+\section{MULTILINEAR ALGEBRA}
+\subsection{Tensors}
+Multilinear algebra is just the linear algebra with many vector spaces ath the same time.
+The fundamental objects are \href{https://www.quora.com/What-is-a-tensor}{\textbf{tensors}} instead of vectors.
+A tensor is any \textbf{multilinear map} from a vector space to a scalar field.
+Tensors are not generalizations of vectors in any way. It's very slightly more understandable to say that tensors are generalizations of matrices, in the same way that it is slightly more accurate to say “vanilla ice cream is a generalization of chocolate ice cream” 
+than it is to say that “vanilla ice cream is a generalization of dessert”, closer, but still false. 
+Vanilla and Chocolate are both ice cream, but chocolate ice cream is not a type of vanilla ice cream, and “dessert” certainly isn't a type of vanilla ice cream.
+This definition as a multilinear maps is another reason people think tensors are generalization of matrices, because matrices are linear maps just like tensors. 
+But the distinction is that matrices take a vector space to itself, while tensors take a vector space to a scalar field. 
+So a matrix is not strictly speaking a tensor.
+
+Essentially, one can view a tensor
+either passively as an element of a certain vector space (the tensor product space)
+or actively as a multilinear functional on the dual of that vector space. The map
+\begin{equation}
+    \textbf{T} = \underbrace{\textbf{V} \times \textbf{V} \times ... \times \textbf{V}}_{r \:times} \times \underbrace{\textbf{V}^* \times \textbf{V}^* \times ... \times \textbf{V}^*}_{s\: times} \rightarrow \mathbb{R} 
+\end{equation}
+
+is said to be multilinear if it is linear in each entry:
+\begin{equation}
+    \textbf{T} (v_1, . . . , au + bw, . . . , v_{r +s} ) = a\textbf{T} (v_1, . . . , u, . . . , v_{r +s} ) + b\textbf{T} (v_1, . . . , w, . . . , v_{r +s} )
+\end{equation}
+The space of all such maps is linear under pointwise addition and scalar
+multiplication.
+
+Given two vectors v and w, we can form their \href{http://web.math.ucsb.edu/~jhateley/project/tensor.pdf}{\textbf{tensor product}}
+v $\otimes$ w. The product v $\otimes$ w is called a tensor of order 2 or a second-order tensor or a 2-tensor.
+It is a vector space to which is associated a bilinear map $\textbf{V} \times \textbf{W} \rightarrow \textbf{V} \otimes \textbf{W}$
+that maps a pair (v, w), v $\epsilon$ \textbf{V} and w $\epsilon$ \textbf{W}, to an element of $\textbf{V} \otimes \textbf{W}$, denoted by v$\otimes$w.
+
+\paragraph{\textbf{Properties:}}
+\begin{itemize}
+    \item If \textbf{R} is a tensor of order \textit{r} and \textbf{S} is a tensor of order \textit{s}, then order of \textbf{R}$\otimes$\textbf{S} = \textit{r}+\textit{s}.
+    \item \textbf{Scalar Associativity: } \textbf{T} $\otimes$ (a\textbf{S}) = (a\textbf{T}) $\otimes$\textbf{S} = a (\textbf{T}$\otimes$\textbf{S}) \hspace{2cm}; a = scalar
+    \item \textbf{Associativity: } (\textbf{R}$\otimes$\textbf{S}) $\otimes$\textbf{T} = \textbf{R}$\otimes$ (\textbf{S}$\otimes$\textbf{T})
+    \item \textbf{Distributive: } \textbf{R}$\otimes$ (\textbf{S} + \textbf{T}) = \textbf{R}$\otimes$\textbf{S} + \textbf{R}$\otimes$\textbf{T}
+    \item \textbf{Distributive: } (\textbf{R} + \textbf{S}) $\otimes$ (\textbf{T} + \textbf{U}) = (\textbf{R}$\otimes$\textbf{T}) + (\textbf{R}$\otimes$\textbf{U}) + (\textbf{S}$\otimes$\textbf{T}) + (\textbf{S}$\otimes$\textbf{U}) 
+    \item \textbf{Non-Commutative: } \textbf{R}$\otimes$\textbf{S} $\neq$ \textbf{S}$\otimes$\textbf{R}
+    \item dim (\textbf{R}$\otimes$\textbf{S}) = dim \textbf{R} . dim \textbf{S} = dim Hom(R, S)
+\end{itemize}
+
+Let \textbf{V} be a  vector space and $\textbf{V}^*$ be its dual space. Then a Tensor \textbf{T}
+of \textbf{type\textit{(r, s)}} is an element of the tensor product space
+
+\begin{equation}
+    \textbf{T}_s^r = \underbrace{\textbf{V} \otimes \textbf{V} \otimes ... \otimes \textbf{V}}_{r \:times} \otimes \underbrace{\textbf{V}^* \otimes \textbf{V}^* \otimes ... \otimes \textbf{V}^*}_{s\: times} = \textbf{V}^{\otimes r} \otimes (\textbf{V}^*)^{\otimes s}
+\end{equation}
+
+What we previously called a tensor of order \textit{r} is just a tensor of type \textit{(r, 0)}.
+The properties of the tensor product ensure that the space of all tensors forms a
+\textbf{multigraded algebra}.
+
+\subsection{Symmetry Types of Tensors}
+Let \textbf{T} be a tensor of type (0, 2) with components $\textbf{T}_{ij}$ in some basis. If $\textbf{T}_{ij}$ = $\textbf{T}_{ji}$ we
+say \textbf{T} is \textbf{symmetric}, while if $\textbf{T}_{ij}$ = -\textbf{T} ji we say \textbf{T} is \textbf{antisymmetric}. Of course, a
+general (0, 2) tensor has no such property. But if a (0, 2) tensor has either property,
+we say it has \textbf{definite symmetry}.
+
+The symmetric part of T is the symmetric tensor with components,
+\begin{equation}
+    (T_{sym})_{ij} = \frac{1}{2} (T_{ij} + T_{ji})
+\end{equation}
+
+while the antisymmetric part of T is the antisymmetric tensor with
+components,
+\begin{equation}
+    (T_{asym})_{ij} = \frac{1}{2} (T_{ij} - T_{ji})
+\end{equation}
+
+Evidently, for a (0, 2) tensor, \textbf{T} is the sum of its symmetric and antisymmetric
+parts. These ideas can be generalized to higher-order tensors, but the results are not
+as simple. Defining what is meant by “definite symmetry” for higher-order tensors
+requires some understanding of the representation theory of the symmetric group.
+The higher-order analogues of symmetric and antisymmetric tensors can be given by,
+
+\begin{equation}
+    (T_{sym})_{i_1, i_2, ..., i_p} = \frac{1}{p!}\sum_{\sigma \epsilon \textbf{S}_p} T_{i_\sigma(1), i_\sigma(2), ..., i_\sigma(p)} = T_{(i_1i_2...i_p)}
+\end{equation}
+
+\begin{equation}
+    (T_{asym})_{i_1, i_2, ..., i_p} = \frac{1}{p!}\sum_{\sigma \epsilon \textbf{S}_p} (-1)^{\sigma} T_{i_\sigma(1), i_\sigma(2), ..., i_\sigma(p)} = T_{[i_1i_2...i_p]}
+\end{equation}
+
+where $\textbf{S}_p$ is the set of all permutations of p elements and (-1)$^ \sigma$ denotes the
+sign of the permutation $\sigma$. If p$>$2 then it is no longer true that T is the sum of
+its symmetric and antisymmetric parts. symmetry type is
+preserved under the taking of linear combinations of tensors of the same symmetry
+type; thus, the set of all symmetric and the set of all antisymmetric tensors are both
+subspaces of the space of all tensors. Specifically, we write Sym$^p$ \textbf{V} and
+Alt$^p$ \textbf{V} for the subspace of symmetric and antisymmetric respectively (0, p) tensors
+or ( p, 0) tensors.
+
+Viewed as a multilinear map, the condition that T be symmetric is just
+\begin{equation}
+    T(v_{\sigma(1)}, v_{\sigma(2)} , . . . , v_{\sigma(p)} ) = T (v_1 , v_2 , . . . , v_p ),
+\end{equation}
+while the condition that T be antisymmetric is
+\begin{equation}
+    T(v_{\sigma(1)}, v_{\sigma(2)} , . . . , v_{\sigma(p)} ) = (-1)^{\sigma} T (v_1 , v_2 , . . . , v_p ),
+\end{equation}
+for any collection of p vectors (v$_1$, v$_2$, ..., v$_p$) and any permutation $\sigma \epsilon \: \textbf{S}_p$.
+
+\subsection{Exterior Algebra}
+\href{https://en.wikipedia.org/wiki/Exterior_algebra}{Exterior algebra} or Grassmann algebra uses exterior/wedge product
+as multiplication. The exterior product of two vectors u and v also known as \textbf{bivector} is given by,
+\begin{equation}
+    u \exterior v = u \otimes v - v \otimes u
+\end{equation}
+The wedge product turns the collection $\exterior$\textbf{V} of all $\exterior^p$ \textbf{V} for p = 0, 1, 2, . . . into a
+graded algebra, called the exterior algebra of \textbf{V}.
+The wedge product of two vectors is aaso called \textbf{2-vector or 2-blade} and the vector space generated by the set
+of 2-vectors is denoted as $\exterior^2$\textbf{V}. For any vector u, v,w $\epsilon \textbf{V}$,
+
+1. $v \exterior v$ = 0 \hspace{2cm}(like cross-product) \\
+2. $v \exterior w$ = - ($w \exterior v$) \hspace{2cm}(like cross-product) \\
+3. ($u \exterior v$) $\exterior w$ = $  u \exterior (v \exterior w)$  \hspace{2cm}(unlike cross-product)
+
+The 2-blade can be interpreted as the area pf the parallelogram with sides of the length equal to the
+magnitude of vectors, which in 3D can be interpreted as the cross-product of two vectors.
+In general, all parallel plane surfaces with the same orientation and area have the same bivector as a measure of their oriented area.
+The exterior product of k-vectors (\textbf{k-blade}) lies in the space, k$^{th}$ exterior power and the magnitude of k-blade in general 
+gives the oriented hypervolume of the k$^{th}$ dimensional parallelotope whose edges are the given vectors.
+
+\subsubsection{Alternating Tensors and the Space \texorpdfstring{$\exterior^p$} of p-vectors}
+$\exterior^2$ \textbf{V} is naturally isomorphic to the vector space Alt$^2 \textbf{V}$ of alternating (2, 0) tensors. 
+First note that $\exterior^2$ \textbf{V} is spanned by all 2-vectors of the form
+e$_i\exterior$ e$_j$ where i $<$ j.
+
+Let us choose a basis {e$_1$ , e$_2$ , . . . , e$_n$ } for \textbf{V} . If
+\begin{equation}
+    v = \sum_{i}v^ie_i \hspace{1cm} \text{and} \hspace{1cm} w = \sum_{j}w^je_j
+\end{equation}
+
+then by linearity of tensor product,
+\begin{equation}
+    v \exterior w = \sum_{ij} (v^ie_i \otimes w^je_j - w^je_j \otimes v^ie_i) = \sum_{ij}v^iw^j e_i \exterior e_j
+\end{equation}
+
+\begin{equation}
+    \sum_{ij}v^iw^j e_i \exterior e_j = \sum_{ij}v^jw^i e_j \exterior e_i = - \sum_{ij}v^jw^i e_i \exterior e_j
+\end{equation}
+
+Therefore we can write (again using the antisymmetry property of the wedge
+product)
+\begin{equation}
+    v \exterior w = \frac{1}{2} \sum_{ij} (v^iw^j - w^jv^i) e_i \otimes e_j = \sum_{i<j} (v^iw^j - w^jv^i) e_i \otimes e_j
+\end{equation}
+
+It follows that any linear combination of 2-vectors can be written as a linear combination
+of the elements e$_i \exterior $e$_j$ for i $<$ j. Moreover, these 2-vectors are all linearly
+independent, so they form a basis for the space of 2-vectors. There are $^nC_2$ such vectors with,
+
+\begin{equation}
+    dim(\exterior ^2)\textbf{V} = ^nC_2 =  dim(Alt^2 \textbf{V})
+\end{equation}
+where n = dim(\textbf{V})
+
+In general, for k-blade,  
+\begin{equation}
+    dim(\exterior ^k)\textbf{V} = ^nC_k =  dim(Alt^k \textbf{V})
+\end{equation}
+
+and 
+\begin{equation}
+    v_1 \exterior v_2 \exterior ... \exterior v_p = c_p \sum_{\sigma \epsilon\textbf{S}_p} (-1)^\sigma \textbf{V}_{\sigma(1)} \otimes \textbf{V}_{\sigma(2)} \otimes ... \otimes \textbf{V}_{\sigma(p)}
+    \label{eqn:k-blade}
+\end{equation}
+
+where c$_p$ is some constant (the choice is mostly irrelevant).
+It is much easier to deal with wedge products than with alternating
+sums such as those on the right-hand side of equation \ref{eqn:k-blade}.
+
+
+\subsubsection{Hodge Dual}
+\href{https://en.wikipedia.org/wiki/Hodge_star_operator}{\textbf{Hodge star operator}} or  \textbf{Hodge star} is a linear map defined
+on the exterior algebra of finite-dimensional oriented vector space endowed with a nondegenerate symmetric bilinear form.
+The Hodge star operator after operating on an algebraic element (vector, tensors) gives the  
+\href{https://bose.res.in/~amitabha/diffgeom/chap17.pdf}{Hodge dual} element.
+For example, in an oriented 3D Euclidean space, an oriented plane can be represented by the exterior product of two basis vectors, 
+and its Hodge dual is the normal vector given by their cross product; conversely, any vector is dual to the oriented plane perpendicular to it, endowed with a suitable bivector. 
+Generalizing this to an n-dimensional vector space, the Hodge star is a one-to-one mapping of k-vectors to (n - k)-vectors; the dimensions of these spaces are the binomial coefficients 
+${\tbinom {n}{k}}={\tbinom {n}{n-k}}$.
+
+Let $\lambda \: \epsilon \: \exterior ^ p$ then we have a natural linear map from $\exterior ^ {n-p}$ to $\exterior ^ {n}$ \textbf{V} given by,
+\begin{equation}
+    \mu \rightarrow \lambda \exterior \mu
+\end{equation}
+
+But $\exterior ^n$\textbf{V} is a one-dimensional vector space spanned by some element $\sigma$, so
+\begin{equation}
+    \lambda \exterior \mu = f_\lambda (\mu) \sigma
+\end{equation}
+
+for some linear functional $f_\lambda$ on $\exterior ^{n-p}$. Given an inner product g (n-dimensional oriented
+space with nondegenerate symmetric bilinear form $<.,.>$), 
+the \href{https://en.wikipedia.org/wiki/Riesz%27s_lemma}{\textbf{Riesz lemma}} guarantees the existence of a unique (n - p)-vector $\star \lambda$ such that
+\begin{equation}
+    g(\star \lambda, \mu) = f_\lambda (\mu)
+\end{equation}
+
+The element $\star \lambda \; \epsilon \; \exterior ^ {n-p}$ is called the \textbf{Hough dual} or \textbf{Hough star} of $\lambda$. And thus,
+\begin{equation}
+    \lambda \exterior \mu = g(\star \lambda, \mu) \sigma
+\end{equation}
+
+\newpage

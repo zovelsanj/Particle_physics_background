@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{bbold}
+\usepackage{hyperref}
+\usepackage[left= 2.5cm, right = 2.cm,top = 3cm,bottom = 2cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{12pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{12pt}
+\setlength{\parskip}{6pt}
+\setlength\parindent{0pt}
+
+\newcommand{\exterior}{\mathchoice{{\textstyle\bigwedge}}%
+{{\bigwedge}}%
+{{\textstyle\wedge}}%
+{{\scriptstyle\wedge}}}
+
+\title{\Huge \textbf{BACKGROUND STUDY FOR}  \\ \Huge \textbf{PARTICLE PHYSICS}}
+\vspace{10cm}
+\author{\Large Sanjay Rijal}
+\date{\Large \textbf{Start Date: February 15, 2023}}
+
+\begin{document}
+\maketitle
+\newpage
+
+\input{sections/linear_algebra.tex}
+\input{sections/multilinear_algebra.tex}
+\input{sections/manifold.tex}
+\input{sections/group_theory.tex}
+\input{sections/mathematical_methods_particle_physics.tex}
+
+\end{document}
