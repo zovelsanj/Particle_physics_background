@@ -64,6 +64,40 @@ it acts and the dimension of the regular representation is the order of the grou
 For any finite group, we can define a vector space in which the basis vectors are labeled by the group elements.
 Then equation \ref{eqn:representation} defines the regular representation.
 
+\subsection{Subgroup}
+A group H whose elements are all elements of a group G is called a subgroup of G. 
+The identity, and the group G are trivial subgroups of G. For eg., the permutation group S3, has a Z3 subgroup formed by the elements \{e, a$_1$, a$_2$\}. 
+Subgroup can be used to divide up the elements of the group into subsets called \href{https://en.wikipedia.org/wiki/Coset}{\textbf{cosets}}.
+Given an element \textit{g} of G, the \textbf{left cosets} of H in G are the sets obtained by multiplying each element of H by a fixed element \textit{g} of G (where \textit{g} is the \textbf{left factor})
+\begin{center}
+    \textit{g}H = \{\textit{g}h : h $\epsilon$ H\} $\forall$ \textit{g} $\epsilon$ G.
+\end{center}
+The \textbf{right cosets} can be defined similarly where g is now a \textbf{right factor}.
+\begin{center}
+    H\textit{g} = \{h\textit{g} : h $\epsilon$ H\} $\forall$ \textit{g} $\epsilon$ G.
+\end{center}
+
+The number of elements in each coset is the order of H. Every element of G
+must belong to one and only one coset. Thus for finite groups, the order of
+a subgroup H must be a factor of order of G. 
+A subgroup H of G is called an \textbf{invariant} or \textbf{normal subgroup} if $\forall$ g$\epsilon$G
+\begin{equation}
+    gH = Hg
+\end{equation}
+
+i.e.$\forall$ \textit{g} $\epsilon$G and \textit{h}$_1 \: \epsilon$ H $\exists$ an \textit{h}$_2 \: \epsilon$ H s.t.
+\begin{center}
+    \textit{h}$_1$\textit{g} = \textit{gh}$_2$, or \textit{gh}$_2$\textit{g}$^{-1}$ = \textit{h}$_2$.
+\end{center} 
+
+The trivial subgroups e and G are invariant for any group. If H is invariant then H\textit{g}$_1$ H\textit{g}$_1^{-1}$ = H, 
+so the product of elements in two cosets is in the coset represented by the product of the elements. 
+In this case, the coset space G/H, is called the \textbf{factor group} of G by H.
+
+The \textbf{center} of a group G is the set of all elements of G that commute
+with all elements of G. The center is always an Abelian, invariant subgroup
+of G. However, it may be trivial, consisting only of the identity, or of the
+whole group.
 
 
 
