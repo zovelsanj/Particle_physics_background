@@ -22,9 +22,10 @@ the distance between the points on the surface has changed, they have different
 geometries.
 
 \subsection{Some Basic Set Terminologies}
-\textbf{a. Open and Closed Sets:} A subset S of X is said to be an \textbf{open set} if every point of S is an interior point of S i.e. \\
-$\forall$ x $\epsilon$ S $\exists \: \epsilon >$ 0 s.t. B(x; $\epsilon$) $\subset$ S.
-
+\textbf{a. Open and Closed Sets:} A subset S of X is said to be an \textbf{open set} if every point of S is an interior point of S i.e.
+\begin{center}
+    $\forall$ x $\epsilon$ S $\exists \: \epsilon >$ 0 s.t. B(x; $\epsilon$) $\subset$ S.    
+\end{center}
 A subset S of X is called a \textbf{closed set} if $\overline{\text{S}}$ = X-S is open.
 
 Some sets may be both open and closed, such sets are called \textbf{clopen sets}.
@@ -40,9 +41,10 @@ is called the \textbf{exterior} of S, \textbf{ext(S)}.
 Set S is called \textbf{dense} if Cl(S) = X.
 
 \textbf{d. Cover: } An \href{https://en.wikipedia.org/wiki/Cover_(topology)}{\textbf{open cover}} of S $\subset$ X is a collection of {U$_\alpha$} of open sets in X
-whose union contains S i.e.\\
-S $\subseteq$ U$_\alpha$
-
+whose union contains S i.e.
+\begin{center}
+    S $\subseteq$ U$_\alpha$
+\end{center}
 An open cover is \textbf{locally finite} if, for every x $\epsilon$ S , there is an open neighborhood B(x; r) of x
 such that $\lvert$\{$\alpha$: U $\cap$ U$_\alpha$ $\neq \: \emptyset $\}$\rvert$ is finite. (Note that a locally finite open cover is not
 necessarily finite.) An open cover {V$_\beta$ } is a \textbf{refinement} of {U$_\alpha$} if for all $\beta$ there is
@@ -422,8 +424,9 @@ In other words, \textit{f} vanishes to kth order at p if the first k terms in it
 For k$>$0 let \textbf{M}$^k_p$ be the set of all smooth functions on \textbf{M} vanishing to (k-1)th order at p, 
 and set \textbf{M}$^0_p$:= $\Omega^0$(\textbf{M}) and M$_p$ := \textbf{M}$^1_p$. Each \textbf{M}$^k_p$ is a vector
 space under the usual pointwise operations, and we have the series of inclusions
-
-\textbf{M}$^0_p \supset$ \textbf{M}$^1_p \supset$ \textbf{M}$^2_p \supset$ ....
+\begin{center}
+    \textbf{M}$^0_p \supset$ \textbf{M}$^1_p \supset$ \textbf{M}$^2_p \supset$ ....    
+\end{center}
 
 We now define T$_p^*$\textbf{M}, the cotangent space to \textbf{M} at p, to be the
 \href{https://www.youtube.com/watch?v=nh-YgZph-r4}{\textbf{quotient space}} 
@@ -431,4 +434,5 @@ We now define T$_p^*$\textbf{M}, the cotangent space to \textbf{M} at p, to be t
     T_p^*\textbf{M} = \textbf{M}_p/\textbf{M}^2_p
 \end{equation}
 An element of T$_p^*$\textbf{M} is called a \textbf{differential 1-form} at p.
+
 \newpage
