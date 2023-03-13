@@ -356,8 +356,32 @@ corresponding dual basis vectors are denoted dx$^i$. By definition we have
     \Bigg< \frac{\partial}{\partial x_i}, dx^j\Bigg> = \delta_i^j
 \end{equation}
 
-\href{https://mathworld.wolfram.com/One-Form.html}{1-form}
-(\href{https://www.physicsforums.com/threads/what-is-2-form.762846/#:~:text=The%201%2Dforms%20(or%20covectors,the%20bases%20may%20be%20omitted.}{p-form})
+A general element $\alpha$ p of T$_p^*$\textbf{M} is a linear combination of
+the basis elements:
+\begin{equation}
+    \alpha_p = a_i dx^i
+\end{equation}
+where $\alpha_i$ are constants.
+
+A \textbf{differential} \href{https://mathworld.wolfram.com/One-Form.html}{\textbf{1-form}} or \textbf{smooth covector field}
+on \textbf{M} is a smooth map p$\rightarrow \alpha_p$. In local coordinates around p 
+\begin{equation}
+    \alpha = a_i(x)dx^i
+\end{equation}
+where the a$_i$(x) are smooth functions on \textbf{M}.
+
+\textbf{1-forms} (covector/pseudovector) of a vector space with local coordinates (dx$_1$, dx$_2$, ..., dx$_n$)
+are the elements of a vector space with local basis (dx$^1$, dx$^2$, ..., dx$^n$) i.e. dual space.
+(Vectors (covariant vectors/\textbf{kets} $|\psi \rangle$) and 1-forms (contravariant vectors/\textbf{bras} $\langle \psi |$) are dual to each other.)
+\textbf{2-forms} are the elements of the exterior product space with local basis (dx$^1 \exterior$ dx$^2$, dx$^2 \exterior$ dx$^3$ ..., dx$^{n-1} \exterior$ dx$^n$).
+In general, (\href{https://www.physicsforums.com/threads/what-is-2-form.762846/#:~:text=The%201%2Dforms%20(or%20covectors,the%20bases%20may%20be%20omitted.}{\textbf{p-form}})
+are the elements of the exterior product space with basis (dx$^1 \exterior$ dx$^2 ... dx^p$, ...). For eg:
+in 3D Euclidean space with basis (i, j, k), 
+
+1-form have basis (i', j', k') \\
+2-form have basis (j$\exterior$k, k$\exterior$i, i$\exterior$j) \\
+3-form have basis (i$\exterior$j$\exterior$k) \\
+other higher forms don't exist for 3D.
 
 Like tangent space, cotangent space is also independent of any particular coordinate system for its definition. 
 If \{e$_i$\} is a generic basis for T$_p$\textbf{M} then the corresponding dual basis \{$\theta^i$\} is called a \textbf{coframe field}, so
@@ -373,18 +397,38 @@ space is defined in terms of the tangent space, which is itself defined as a spa
 derivations on functions. There is, however, an elegant way to define the cotangent
 space directly, using just the notion of a smooth function, which is perhaps a bit
 more natural from the point of view of manifold theory. It uses the idea of a \textbf{jet}.
+Jet is an operation that takes a differential function \textit{f} and produces a polynomial,
+the truncated Taylor polynomial of \textit{f} at each point of its domain. 
+The theory of jets regards these polynomials as abstract polynomials rather than polynomial functions.
+\begin{equation}
+    (J_{x_0}^k f)(z) = \sum_{i=0}^{k} \frac{f^{(i)}(x_0)}{i!}z^i = f(x_0) + f'(x_0)z + ... + \frac{f^{(k)}(x_0)}{k!}z^k
+\end{equation}
+gives the k-jet of f:$\mathbb{R} \rightarrow \mathbb{R}$ at point x$_0$ in 1D case.
 
-\href{https://www.youtube.com/watch?v=nh-YgZph-r4}{\textbf{Quotient Space}}
+Let C$^\infty$($\mathbb{R}^n, \mathbb{R}^m$) be a vector space of smooth functions f:$\mathbb{R}^n \rightarrow \mathbb{R}^m$.
+Let k is a non-negative integer and p $\epsilon \mathbb{R}^n$, then we can define an equivalence relation \textbf{E}$^k_p$ on C$^\infty$
+by declaring that two functions \textit{f} and \textit{g} are equivalent to the order of k if they have the same value at p,
+and all their partial derivatives agree at p upto their kth derivatives i.e.
+\textit{f} $\sim$ \textit{g} iff \textit{f}-\textit{g} = 0 to kth order.
+The \textbf{kth order jet space} of C$^\infty$($\mathbb{R}^n, \mathbb{R}^m$) at p is defined as the set of 
+equivalence classes of \textbf{E}$^k_p$ and is denoted by J$^k_p$($\mathbb{R}^n, \mathbb{R}^m$).
 
+Now, let \textit{f}:\textbf{M} $\rightarrow \mathbb{R}$ be a smooth function, p$\epsilon$\textbf{M}, and \{x$^i$\} local coordinates around
+p. We say that \textit{f} vanishes to first order at p if $\partial f /\partial x^i$ vanishes at p for all i.
+for k$\geq$1 we say that \textit{f} vanishes to kth order at p if, $\forall$ i, $\partial f /\partial x^i$ vanishes to (k-1)th order at p,
+where \textit{f} vanishes to zeroth order at p if \textit{f}(p) = 0. 
+In other words, \textit{f} vanishes to kth order at p if the first k terms in its Taylor expansion vanish at p.
 
+For k$>$0 let \textbf{M}$^k_p$ be the set of all smooth functions on \textbf{M} vanishing to (k-1)th order at p, 
+and set \textbf{M}$^0_p$:= $\Omega^0$(\textbf{M}) and M$_p$ := \textbf{M}$^1_p$. Each \textbf{M}$^k_p$ is a vector
+space under the usual pointwise operations, and we have the series of inclusions
 
+\textbf{M}$^0_p \supset$ \textbf{M}$^1_p \supset$ \textbf{M}$^2_p \supset$ ....
 
-
-
-
-
-
-
-
-% ^
+We now define T$_p^*$\textbf{M}, the cotangent space to \textbf{M} at p, to be the
+\href{https://www.youtube.com/watch?v=nh-YgZph-r4}{\textbf{quotient space}} 
+\begin{equation}
+    T_p^*\textbf{M} = \textbf{M}_p/\textbf{M}^2_p
+\end{equation}
+An element of T$_p^*$\textbf{M} is called a \textbf{differential 1-form} at p.
 \newpage
