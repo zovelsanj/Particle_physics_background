@@ -435,4 +435,38 @@ We now define T$_p^*$\textbf{M}, the cotangent space to \textbf{M} at p, to be t
 \end{equation}
 An element of T$_p^*$\textbf{M} is called a \textbf{differential 1-form} at p.
 
+\subsection{Differential Forms}
+Just as a k-vector is a special kind of tensor (\href{https://web2.clarkson.edu/projects/subramanian/ch490/notes/Alternating%20Unit%20Tensor.pdf}{alternating tensor}), a k-form is a
+special kind of tensor field (alternating tensor field).  
+k-forms are by far the most useful kind of tensor fields, for several reasons:
+
+1.They are easy to define. \\
+2. They are easy to use because, for the most part, one does not have to deal with all those irritating indices. \\
+3. Almost all important geometrical quantities can be expressed in terms of forms. \\
+4. Differential forms are essentially the things that appear under integral signs.
+
+Let U be a coordinate patch of \textbf{M} and let p $\epsilon$ U. A k-form $\omega_p$ on U at p is an element of k (T$_p^*$\textbf{M}). 
+It follows that, in local coordinates,
+\begin{equation}
+    \omega_p = \frac{1}{k!}\sum a_{i_1...i_k}dx^{i_1}\exterior...\exterior dx^{i_k} = \sum a_I dx^I
+\end{equation}
+
+for some constants a$_I$ = a$_{i_1...i_k}$. A (differential) k-form $\omega$ on \textbf{M} is a smooth
+assignment p $\rightarrow \omega_p$. In local coordinates,
+\begin{equation}
+    \omega_U = \frac{1}{k!}\sum a_{i_1...i_k}(x)dx^{i_1}\exterior...\exterior dx^{i_k} = \sum a_I(x) dx^I
+\end{equation}
+
+where the a$_I$(x) are now smooth functions on U. 
+The vector space of all k-forms on \textbf{M} is denoted $\Omega^k$(\textbf{M}). 
+In particular, we think of the smooth functions on \textbf{M} as \textbf{0-forms}.
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{figures/differential_k-form.png}
+        \caption{Just like a vector field is an assignment of vectors to each point in space (manifold), 
+        a differential k-form is an assignment of k-forms to each point in space (manifold)}
+    \end{center}
+\end{figure}
+
 \newpage
