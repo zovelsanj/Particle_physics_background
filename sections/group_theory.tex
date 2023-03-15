@@ -100,6 +100,46 @@ of G. However, it may be trivial, consisting only of the identity, or of the
 whole group.
 
 
+The \textbf{characters} $\chi_D$(g) of a group representation D are the traces of the linear
+operators of the representation or their matrix elements:
+\begin{equation}
+    \chi_D(g) \equiv Tr D(g) = \sum_{i}[D(g)]_{ii}
+\end{equation}
+
+The advantage of the characters is that because of the cyclic property of the trace Tr(AB) = Tr(BA), they are unchanged by similarity transformations,
+thus all equivalent representations have the same characters. The characters are also different for each inequivalent irreducible representation, D$_a$\textemdash 
+in fact, they are orthonormal up to an overall factor of N.
+
+\subsection{Eigenstates}
+In quantum mechanics, we are often interested in the eigenstates of an invariant hermitian operator, in particular the Hamiltonian, H. 
+We can always take these eigenstates to transform according to irreducible representations of the symmetry group. 
+To prove this, note that we can divide up the Hilbert space into subspaces with different eigenvalues of H. 
+Each subspace furnishes a representation of the symmetry group because D(\textit{g}), the group representation on the full Hilbert space, 
+cannot change the H eigenvalue because [D(\textit{g}), H] = 0. But then we can completely reduce the representation in each subspace.
+If some irreducible representation appears only once in the Hilbert space, then the states in that representation must be eigenstates
+of H (and any other invariant operator). This is true because H$|a, j, x\rangle$ must be in the same irreducible representation, thus
+\begin{equation}
+    H|a, j, x\rangle = \sum_{y} c_y |a, j, x\rangle
+\end{equation}
+and if x andy take only one value, then $|a, j, x\rangle$ is an eigenstate.
+
+\textbf{Theorem:} If a hermitian operator H, commutes with all the elements D(\textit{g}), of a representation of the group G, 
+then you can choose the eigenstates of H to transform according to irreducible representations of G. 
+If an irreducible representation appears only once in the Hilbert space, every state in the irreducible representation 
+is an eigenstate of H with the same eigenvalue.
+
+For Abelian groups, this procedure of choosing the H eigenstates to transform under irreducible representations is analogous to simulta-
+neously diagonalizing H and D(\textit{g}) because for an Abelian group that commutes with the H, the group elements can simultaneously
+diagonalized along with H. This is a consequence of theorem,
+
+\textbf{Theorem:} All of the irreducible representations of a finite Abelian group are 1-dimensional.
+
+For a non-Abelian group, we cannot simultaneously diagonalize all of the D(\textit{g})s, 
+but we can completely reduce the representation on each subspace of constant H.
+A classical problem which is quite analogous to the problem of diagonalizing the Hamiltonian  in quantum mechanics 
+is the problem of finding the normal modes of small oscillations of a mechanical system about a point of stable equilibrium. 
+Here, the square of the angular frequency is the eigen value of the M$^{-1}$K matrix and the normal modes are the eigenvectors of M$^{-1}$K.
+
 
 
 
