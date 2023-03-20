@@ -435,6 +435,43 @@ We now define T$_p^*$\textbf{M}, the cotangent space to \textbf{M} at p, to be t
 \end{equation}
 An element of T$_p^*$\textbf{M} is called a \textbf{differential 1-form} at p.
 
+\subsection{Tensor Field}
+There are many different ways to define a tensor field on a manifold, but the essential idea is simple enough: 
+just like a vector field is an assignment of vectors to each point in space (manifold \textbf{M}), a tensor field is just a smooth assignment of a tensor to every point of \textbf{M}.  
+A tensor field $\Psi$ of type (r, s) can also be defined as a map from \textbf{M} to \textbf{T}$^s_r$ s.t. on any coordinate
+patch U, the components $\Psi^{i_1 i_2...i_r}_{j_1 j_2...j_s}$ are smoothly varying functions. 
+\begin{equation}
+    \Psi = \Psi^{i_1 i_2...i_r}_{j_1 j_2...j_s} \frac{\partial}{\partial x^{i_1}} \otimes ... \otimes \frac{\partial}{\partial x^{i_r}} \otimes dx^{j_1} \otimes ... \otimes dx^{j_s}
+\end{equation}
+
+where for any p $\epsilon$ U , the vector fields $\frac{\partial}{\partial x^{i_i}}$ and the 1-form fields dx$^i$ constitute dual bases for
+T$_p$\textbf{M} and T$_p^*$\textbf{M} respectively, thus forming a basis of tensor product space (T$_p$\textbf{M})$^{\otimes r} \otimes$ (T$_p^*$\textbf{M})$^{\otimes s}$.
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{figures/vector_field.png}
+        \caption{Just like a vector field is an assignment of vectors to each point in space (manifold),
+        a tensor field is an assignment of tensors to each point in space (manifold)}
+    \end{center}
+\end{figure} 
+
+Tensor field can also be viewed as a smoothly varying multilinear map. 
+Let $\widetilde{\textbf{T}}^s_r$(p) be the space of all multilinear maps on (T$_p^*$\textbf{M})$^{\times r} \times$ (T$_p$\textbf{M})$^{\times s}$.
+A tensor field $\Psi$ of type (r, s) is then a smooth assignment of an element $\Psi_p \: \epsilon$
+$\widetilde{\textbf{T}}^s_r$(p) to each p $\epsilon$ \textbf{M}. 
+The map $\Psi$ must be more than just multilinear-in fact, it must be \href{https://math.stackexchange.com/questions/2138459/understanding-the-definition-of-tensors-as-multilinear-maps}{functional multilinear}, 
+which means that equation \ref{eqn:functional_multilinear} must hold for $\Psi$.
+\begin{equation}
+    \Psi(v_1, ..., \alpha_1 u + \alpha_2 w, ..., v_{r+s}) = \alpha_1 \Psi(v_1, ..., u, ..., v_{r+s}) + \alpha_2 \Psi(v_1, ..., w, ..., v_{r+s})
+    \label{eqn:functional_multilinear}
+\end{equation}
+where $\alpha_1$ and $\alpha_2$ are smooth functions on \textbf{M}. And thus,
+\begin{equation}
+    \Psi: \underbrace{\Gamma(T^*\textbf{M}) \times ... \times \Gamma(T^*\textbf{M})}_{r \:times} \times \underbrace{\Gamma(T \textbf{M}) \times ... \times \Gamma(T \textbf{M})}_{s\: times} \rightarrow \Omega^0 (\textbf{M})
+    \label{eqn:0-form}
+\end{equation}
+where $\Gamma$(T \textbf{M}) and $\Gamma$(T$^*$ \textbf{M}) denote the space of all vectors and covectors fields on \textbf{M}.
+
 \subsection{Differential Forms}
 Just as a k-vector is a special kind of tensor (\href{https://web2.clarkson.edu/projects/subramanian/ch490/notes/Alternating%20Unit%20Tensor.pdf}{alternating tensor}), a k-form is a
 special kind of tensor field (alternating tensor field).  
