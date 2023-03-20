@@ -21,6 +21,7 @@ The number of elements in a finite group G is called the \textbf{order} of G. Fo
 An \textbf{Abelian group} G in one in which the multiplication law is commutative i.e.
 g$_1$g$_2$ = g$_2$g$_1$. And the one which doesn't follows commutation is called \textbf{non-Abelian group}.
 
+\subsection{Representation}
 A \textbf{Representation} of a group G is a mapping D of the elements of G onto a set of
 linear operators with the following properties:
 
@@ -63,6 +64,17 @@ The \textbf{dimension of a representation} is the dimension of the space on whic
 it acts and the dimension of the regular representation is the order of the group. The representation of Z$_3$ is 1 dimensional.
 For any finite group, we can define a vector space in which the basis vectors are labeled by the group elements.
 Then equation \ref{eqn:representation} defines the regular representation.
+
+\subsection{Conjugacy Class}
+Conjugacy in abstract algebra is analogous to similarity transformation in linear algebra
+which relates the linear transformations behaving in similar fashion under change of basis,
+Let G be a group and \textit{g}, \textit{h} $\epsilon$ G. We say \textit{g} and \textit{h} are conjugate,
+\textit{g} $\sim$ \textit{h} if $\exists$ \textit{x} $\epsilon$ G s.t. 
+\begin{equation}
+    h = xgx^{-1} 
+\end{equation}
+
+This implies conjugacy is an \textbf{equivalence relation}. Its equivalence classes are called \href{https://www.youtube.com/watch?v=yOt3ppQGuto}{\textbf{conjugacy classes}}.
 
 \subsection{Subgroup}
 A group H whose elements are all elements of a group G is called a subgroup of G. 
