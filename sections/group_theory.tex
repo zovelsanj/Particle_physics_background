@@ -152,7 +152,16 @@ A classical problem which is quite analogous to the problem of diagonalizing the
 is the problem of finding the normal modes of small oscillations of a mechanical system about a point of stable equilibrium. 
 Here, the square of the angular frequency is the eigen value of the M$^{-1}$K matrix and the normal modes are the eigenvectors of M$^{-1}$K.
 
-
+\subsection{Tensor Product Representation}
+Suppose that D$_1$ is an m-dimensional representation acting on a space with basis vectors $|j\rangle$ for j = 1 to m and 
+D$_2$ is an n-dimensional representation acting on a space with basis vectors $|x\rangle$ for x = 1 to n. 
+We can make an m $\times$ n dimensional space called the \textbf{tensor product space} by taking basis vectors labeled by both j and x  in an ordered pair $|j, x\rangle$. 
+Then when j goes from 1 to m and x goes from 1 to n, the ordered pair (j, x) runs over m $\times$ n different combinations. 
+On this product space, we can define a new representation called the \textbf{tensor product representation} D$_1 \otimes$D$_2$ by multiplying the two smaller representations. 
+More precisely, the matrix elements of D$_{D_1 \otimes D_2}$(\textit{g}) are products of those of D$_1$(\textit{g}) and D$_2$(\textit{g}):
+\begin{equation}
+    \langle j, x| D_{D_1 \otimes D_2}(g)|k, y \rangle \equiv \langle j| D_1(g)|k \rangle \langle x|D_2(g)|y \rangle
+\end{equation}
 
 
 
