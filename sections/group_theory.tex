@@ -65,17 +65,6 @@ it acts and the dimension of the regular representation is the order of the grou
 For any finite group, we can define a vector space in which the basis vectors are labeled by the group elements.
 Then equation \ref{eqn:representation} defines the regular representation.
 
-\subsection{Conjugacy Class}
-Conjugacy in abstract algebra is analogous to similarity transformation in linear algebra
-which relates the linear transformations behaving in similar fashion under change of basis,
-Let G be a group and \textit{g}, \textit{h} $\epsilon$ G. We say \textit{g} and \textit{h} are conjugate,
-\textit{g} $\sim$ \textit{h} if $\exists$ \textit{x} $\epsilon$ G s.t. 
-\begin{equation}
-    h = xgx^{-1} 
-\end{equation}
-
-This implies conjugacy is an \textbf{equivalence relation}. Its equivalence classes are called \href{https://www.youtube.com/watch?v=yOt3ppQGuto}{\textbf{conjugacy classes}}.
-
 \subsection{Subgroup}
 A group H whose elements are all elements of a group G is called a subgroup of G. 
 The identity, and the group G are trivial subgroups of G. For eg., the permutation group S3, has a Z3 subgroup formed by the elements \{e, a$_1$, a$_2$\}. 
@@ -110,7 +99,6 @@ The \textbf{center} of a group G is the set of all elements of G that commute
 with all elements of G. The center is always an Abelian, invariant subgroup
 of G. However, it may be trivial, consisting only of the identity, or of the
 whole group.
-
 
 The \textbf{characters} $\chi_D$(g) of a group representation D are the traces of the linear
 operators of the representation or their matrix elements:
@@ -162,6 +150,78 @@ More precisely, the matrix elements of D$_{D_1 \otimes D_2}$(\textit{g}) are pro
 \begin{equation}
     \langle j, x| D_{D_1 \otimes D_2}(g)|k, y \rangle \equiv \langle j| D_1(g)|k \rangle \langle x|D_2(g)|y \rangle
 \end{equation}
+
+\subsection{Symmetry Group \texorpdfstring{S$_n$}. (Permutation Group)}
+A permutation group is a group G whose elements are permutations of a given set M and whose group operation is the composition of permutations in G.
+The group of all permutations of a set M is the symmetric group of M, often written as Sym(M) or S$_n$. 
+The term permutation group thus means a subgroup of the symmetric group S$_n$.
+
+Any element of the permutation group on n objects, called S$_n$. can be written
+in term of cycles, where a cycle is a cyclic permutation of a subset.
+Commonly used notation is where each cycle is written as a set of numbers in parentheses, 
+indicating the set of things that are cyclicly permuted. For eg.:
+
+(1) means x$_1 \: \rightarrow$ x$_1$ \\
+(1372) means X$_1 \: \rightarrow$ X$_3 \: \rightarrow$ X$_7 \: \rightarrow$ X$_2 \: \rightarrow$ X$_1$ \\
+(1372)(4) means X$_1 \: \rightarrow$ X$_3 \: \rightarrow$ X$_7 \: \rightarrow$ X$_2 \: \rightarrow$ X$_1$ while x$_4$ remains unchanged.
+Thus, (1372)(4) = (1372)
+
+Let a particular permutation of a set M = \{1, 2, 3, 4, 5\} written as
+\begin{equation}
+   \sigma = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5\\ 
+        2 & 5 & 4 & 3 & 1
+   \end{pmatrix}
+\end{equation}
+
+This means that $\sigma$ statisfies $\sigma$(1) = 2, $\sigma$(2) = 5, $\sigma$(3) = 4, $\sigma$(4) = 3, and $\sigma$(5) = 1.
+It can be written in cycle notation as $\sigma$ = (125)(34).
+An arbitrary element has k$_i$ i-cycles, where
+\begin{equation}
+    \sum_{i=1}^{n} ik_i = n
+\end{equation}
+$\sigma$ has one 3-cycle and one 2-cycle, so k$_1$ = 1 and k$_2$ = 1.
+
+\subsection{Conjugacy Class}
+Conjugacy in abstract algebra is analogous to similarity transformation in linear algebra
+which relates the linear transformations behaving in similar fashion under change of basis,
+Let G be a group and \textit{g$_1$}, \textit{h} $\epsilon$ G. We say \textit{g$_1$} and \textit{h} are conjugate,
+\textit{g$_1$} $\sim$ \textit{h} if $\exists$ \textit{g} $\epsilon$ G s.t. 
+\begin{equation}
+    h = gg_1g^{-1} 
+\end{equation}
+
+This implies conjugacy is an \textbf{equivalence relation}. Its equivalence classes are called \href{https://www.youtube.com/watch?v=yOt3ppQGuto}{\textbf{conjugacy classes}}.
+The conjugacy classes are just the cycle structure, that is they can be labeled
+by the integers k$_i$. For example, all interchanges are in the same conjugacy class--it is enough to check that the inner automorphism $gg_1g^{-1}$ doesn't
+change the cycle structure of $g_1$ when $g$ is an interchange, because we can build up any permutation from interchanges.
+For eg. for a set M = \{1, 2, 3, 4\}:
+
+(12)(3)(4)·(1)(23)(4)·(12)(3)(4) (note that an interchange is its own inverse)  \\
+$\implies \underbrace{1234 \rightarrow 2134}_{(12)(3)(4)} \underbrace{ \rightarrow 3124}_{(1)(23)(4)}  \underbrace{ \rightarrow 3214}_{(12)(3)(4)}$ \\ 
+$\implies$ (13)(2)(4)
+
+Thus, (13)(2)(4) and (1)(23)(4) are conjugate of each other.
+And the conjugacy class of S$_4$ is the combination of all possible permutations i.e. for S$_4$
+\begin{center}
+    S$_4$ = 
+    \begin{tabular}{ |c|c|c|c| } 
+     \hline
+     () & (12) & (13) & (14)\\ \hline
+     (23) & (24) & (34) & (123)\\ \hline
+     (132) & (124) & (142) & (134)\\ \hline
+     (143) & (234) & (243) & (1234)\\ \hline
+     (1243) & (1423) & (1324) & (1342)\\ \hline
+     (1432) & (12)(34) & (13)(24) & (14)(23) \\
+     \hline
+    \end{tabular}
+\end{center}
+
+The permutations with same cycle types are a common conjugacy class. 
+For eg.: in above table of S$_4$,the transpositions (12), (13), (14), (23), (24), and (34) are a conjugacy class (conjugate to one another) and similarly for others.
+Thus, S$_4$ has 5 conjugacy classes.
+
+\textbf{Theorem: } In S$_n$ $g \sim h$ iff \textit{g} and \textit{h} have the same cycle type.
 
 
 
