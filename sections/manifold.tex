@@ -506,4 +506,26 @@ In particular, we think of the smooth functions on \textbf{M} as \textbf{0-forms
     \end{center}
 \end{figure}
 
+\subsection{Exterior Derivative}
+We now introduce a natural differential operator on k-forms, denoted by 'd'. 
+It is a far reaching generalization of the ordinary gradient, curl, and divergence operators of multivariable calculus.
+
+\textbf{Theorem: } There exists a unique linear operator d:$\Omega^k$(\textbf{M}) $\rightarrow$ $\Omega^{k+1}$(\textbf{M}) called the exterior derivative, satisfying the following properties. 
+For any forms $\lambda$ and $\mu$, and for any function \textit{f} , the operator d is
+
+1. \textbf{linear:} d($\lambda$ + $\mu$) = d$\lambda$ + d$\mu$,\\
+2. \textbf{graded derivation:} d($\lambda \exterior \mu$) = d$\lambda \exterior \mu$ + (-1)$^{(deg \lambda)} \lambda \exterior$ d$\mu$,\\
+3. \textbf{nilpotent:} d$^2 \lambda$ = 0, and \\
+4. \textbf{natural:} in local coordinates \{x$_i$\} about a point p, d\textit{f} = $\sum \frac{\partial \textit{f}}{\partial x^i} dx^i$.
+
+\subsection{Interior Product (Interior Derivative)}
+Interior product is a degree -1 (anti)derivation on the exterior algebra of differential forms on a smooth manifold.
+Given a vector field X we can define a linear map i$_X$ : $\Omega^k$(\textbf{M}) $\rightarrow \Omega^{k-1}$ (\textbf{M}), taking
+k-forms to (k-1)-forms, called the interior product, satisfying the following
+properties. Let f be a function, $\omega$ a 1-form, and $\lambda$ and $\eta$ arbitrary-degree forms. Then
+
+1. i$_X$f = 0 \\
+2. i$_X \omega$ = $\omega$(X) := $\langle \omega, X \rangle$ \\
+3. \textbf{graded derivation:} i$_X$($\lambda \exterior \eta$) = i$_X \lambda \: \exterior \eta$ + (-1)$^{deg \lambda} \lambda \: \exterior$ i$_X \eta$.
+
 \newpage
