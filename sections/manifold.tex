@@ -528,4 +528,42 @@ properties. Let f be a function, $\omega$ a 1-form, and $\lambda$ and $\eta$ arb
 2. i$_X \omega$ = $\omega$(X) := $\langle \omega, X \rangle$ \\
 3. \textbf{graded derivation:} i$_X$($\lambda \exterior \eta$) = i$_X \lambda \: \exterior \eta$ + (-1)$^{deg \lambda} \lambda \: \exterior$ i$_X \eta$.
 
+\subsection{Pullback and Pushforward}
+Let \textit{f}: \textbf{M}$\rightarrow$\textbf{N} be a smooth map of manifolds.  
+Given a smooth map \textit{g}: \textbf{N}$\rightarrow \mathbb{R}$ we define a new map $f^*g$: \textbf{M}$\rightarrow \mathbb{R}$ by  $f^*g$ = $g\circ f$. 
+The map $f^*g$ is called the \textbf{pullback} of \textit{g} by \textit{f}, because the function \textit{g} is “pulled back” from \textbf{N} to \textbf{M}.
+In simple terms, pullback is the composition of smooth maps. 
+Apullback map is extended to forms by requiring it to be
+
+1. \textbf{a ring homomorphism: } $f^*(\lambda + \mu)$ = $f^*\lambda$ + $f^*\mu$, $f^*(\lambda \exterior \mu)$ = $f^*\lambda \exterior f^*\mu$ and \\
+2. \textbf{natural: } d($f^*\lambda$) = $f^*$(d$\lambda$).
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{figures/pullback.png}
+        \caption{Pullback map $g\circ f$ from \textbf{N} to \textbf{M}}
+    \end{center}
+\end{figure}
+
+\href{https://en.wikipedia.org/wiki/Pushforward_(differential)}{Pushforward} and Pullback are \textbf{dual} to each other. 
+The pullback map $f^*$ naturally pulls a form on \textbf{N} back to a form on \textbf{M}. 
+One can ask a similar question regarding vector fields. Do they pull back as well? For that we introduce a new linear map $f_*$: T$_p$\textbf{M}$\rightarrow$
+T$_{f(p)}$\textbf{N} of tangent spaces, called the \textbf{pushforward} by $(f_*X_p)_{f(p)}(g)$ := $X_p(f^*g)$.
+It is a linear approximation of smooth maps of manifolds on tangent spaces. Pushforward is also called differential of \textit{f} as it is generalization of the derivative in calculus.
+It can be used to push tangent vectors on \textbf{M} forward to tangent vectors on \textbf{N}.
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{figures/Pushforward.png}
+        \caption{If a map $\phi$, carries every point on manifold \textbf{M} to manifold \textbf{N} then 
+        the pushforward of $\phi$ carries vectors in the tangent space at every point in \textbf{M} to a tangent space at every point in \textbf{N}.}
+    \end{center}
+\end{figure}
+
+In terms of the pushforward map, the \textbf{inverse function theorem} can be stated as follows:
+the map \textit{f}: \textbf{M} $\rightarrow$ \textbf{N} is a local diffeomorphism in the neighborhood of a point p 
+iff $f_*$ is an isomorphism of T$_p$\textbf{M} and T$_{f(p)}$\textbf{N}.
+Thus,we can push vectors forward by any smooth map but you can only push vector
+fields forward by a diffeomorphism.
+
 \newpage
