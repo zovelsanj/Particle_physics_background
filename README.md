@@ -2,7 +2,7 @@
 Documentation of theoretical background for particle physics including linear and **abstract algebra** with topology theory.
 
 # Compiling Documentation
-The documentation is done completely using LaTeX, so you will require a pdfLaTeX compiler. For that you can either use [overleaf](https://www.overleaf.com/) or [TeXstudio](https://www.texstudio.org/#download) or [Visual Studio Code](https://code.visualstudio.com/) or any other platform supporting pdfLaTeX compiler. For manual set up in Linux follow these steps:
+The documentation is done completely using LaTeX, so you will require a pdfLaTeX compiler. For that you can use [overleaf](https://www.overleaf.com/), [TeXstudio](https://www.texstudio.org/#download), [Visual Studio Code](https://code.visualstudio.com/), or any other platform supporting pdfLaTeX compiler. For manual set up in Linux follow these steps:
 
 ## Dependencies
 If you want to build the documentation manually selecting the compiler then install the dependencies as:
