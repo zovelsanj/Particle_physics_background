@@ -10,7 +10,7 @@ open sets, satisfying the following.
 A \textbf{topological space} (or simply a space) is a set X endowed with a topology.
 Let X be a finite set and $\tau$ be the set of all subsets of X, then $\tau$ is called the \textbf{discrete topology} on X.
 From the point of view of neighborhood, topology is also called the study of \textbf{nearness} relation.
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=\textwidth]{figures/topology_sphere.png}
         \caption{Topological 2-spheres}
@@ -256,7 +256,7 @@ Since df: T$_p$\textbf{M} $\rightarrow$ T$_{f(p)}$\textbf{N} is a linear map bet
 and dim T$_p$\textbf{M} = dim \textbf{M} = m $\forall$ p $\epsilon$ \textbf{M}, 
 it follows by linear algebra that if df is an immersion then dim \textbf{M} $\leq$ dim \textbf{N}. 
 We call dim \textbf{N} - dim \textbf{M} the \textbf{codimension} of df.
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{figures/embedding-immersion.png}
         \caption{\textit{f} is an immersion as well as embedding but \textit{g} is only immersion due to self-intersection at p, which doesn't allow homeomorphism.}
@@ -284,7 +284,7 @@ Whitney's result means that, without loss of generality, we could simply treat
 manifolds as living in a large Euclidean space. The intrinsic description of a manifold also has physical utility. Einstein modeled
 the universe as a smooth manifold of a certain type.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{figures/moebius-klien.png}
         \caption{Möbius strip immersed in $\mathbb{R}^{2}$ (left) and Klein bottle immersed in $\mathbb{R}^{3}$ (right)}
@@ -325,7 +325,7 @@ write a vector field X as
     X = X_i e_i
 \end{equation}
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{figures/tangent-space.png}
         \caption{Although the tangent space T$_p$\textbf{M} is an abstract linear space attached to
@@ -376,8 +376,8 @@ where the a$_i$(x) are smooth functions on \textbf{M}.
 are the elements of a vector space with local basis (dx$^1$, dx$^2$, ..., dx$^n$) i.e. dual space.
 (Vectors (covariant vectors/\textbf{kets} $|\psi \rangle$) and 1-forms (contravariant vectors/\textbf{bras} $\langle \psi |$) are dual to each other.)
 \textbf{2-forms} are the elements of the exterior product space with local basis (dx$^1 \exterior$ dx$^2$, dx$^2 \exterior$ dx$^3$ ..., dx$^{n-1} \exterior$ dx$^n$).
-In general, (\href{https://www.physicsforums.com/threads/what-is-2-form.762846/#:~:text=The%201%2Dforms%20(or%20covectors,the%20bases%20may%20be%20omitted.}{\textbf{p-form}})
-are the elements of the exterior product space with basis (dx$^1 \exterior$ dx$^2 ... dx^p$, ...). For eg:
+In general, (\href{https://www.physicsforums.com/threads/what-is-2-form.762846/#:~:text=The%201%2Dforms%20(or%20covectors,the%20bases%20may%20be%20omitted.}{\textbf{k-form}})
+(or a form of degree k) are the elements of the exterior product space with basis (dx$^1 \exterior$ dx$^2 ... dx^p$, ...). For eg:
 in 3D Euclidean space with basis (i, j, k), 
 
 1-form have basis (i', j', k') \\
@@ -447,7 +447,7 @@ patch U, the components $\Psi^{i_1 i_2...i_r}_{j_1 j_2...j_s}$ are smoothly vary
 where for any p $\epsilon$ U , the vector fields $\frac{\partial}{\partial x^{i_i}}$ and the 1-form fields dx$^i$ constitute dual bases for
 T$_p$\textbf{M} and T$_p^*$\textbf{M} respectively, thus forming a basis of tensor product space (T$_p$\textbf{M})$^{\otimes r} \otimes$ (T$_p^*$\textbf{M})$^{\otimes s}$.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{figures/vector_field.png}
         \caption{Just like a vector field is an assignment of vectors to each point in space (manifold),
@@ -496,9 +496,9 @@ assignment p $\rightarrow \omega_p$. In local coordinates,
 
 where the a$_I$(x) are now smooth functions on U. 
 The vector space of all k-forms on \textbf{M} is denoted $\Omega^k$(\textbf{M}). 
-In particular, we think of the smooth functions on \textbf{M} as \textbf{0-forms}.
+In particular, we think of the smooth functions on \textbf{M} as \textbf{0-forms} as shown in equation \ref{eqn:0-form}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{figures/differential_k-form.png}
         \caption{Just like a vector field is an assignment of vectors to each point in space (manifold), 
@@ -565,5 +565,72 @@ the map \textit{f}: \textbf{M} $\rightarrow$ \textbf{N} is a local diffeomorphis
 iff $f_*$ is an isomorphism of T$_p$\textbf{M} and T$_{f(p)}$\textbf{N}.
 Thus,we can push vectors forward by any smooth map but you can only push vector
 fields forward by a diffeomorphism.
+
+\subsection{Integral Curves and Lie Derivative}
+In addition to the exterior derivative of a differential form there is another intrinsic derivative (its definition does not require the introduction of any additional structure) on manifolds. 
+If X is a vector field on \textbf{M} then, X can be thought of as a generalized directional derivative operator on functions. 
+But to be able to take derivatives of tensor fields, we require pushforward maps since X does not appear to act directly on tensor fields. 
+
+Given a vector field X on \textbf{M}, the fundamental theorem of ODE guarantees that $\exists$ a unique maximal curve $\gamma(t)$: \textbf{I}$\rightarrow$\textbf{M} through
+each point p $\epsilon$ \textbf{M} s.t. $\gamma$(0) = p and the tangent vector to the curve $\gamma$ at $\gamma(t)$ is precisely X$_{\gamma(t)}$. 
+The curve $\gamma$ is called the \textbf{integral curve} of X through p.
+
+In ordinary calculus, given a curve $\gamma(t)$ (a map to some Euclidean space) $\gamma'(t)$ is naturally a vector (tangent vector to the curve).
+But this interpretation is no longer tenable in a general manifold that is not itself a vector space. 
+Instead, vectors are derivations, so we really want to understand $\gamma'(t)$ as a derivation.
+For this we define \textbf{I} as a manifold (open interval on real line) and attach the coordinate \textit{t} to the points of \textbf{I}. 
+Then \textit{d/dt} is a tangent vector field on \textbf{I} which acts on functions \textit{f}: \textbf{I} $\rightarrow \mathbb{R}$ according to \textit{(d/dt)f} = \textit{df/dt}.
+Then we can define
+\begin{equation}
+    \gamma'(t) = \gamma_*(d/dt)_{\gamma(t)}
+\end{equation}
+
+This allows us to reduce the question of the existence of an integral curve in a general manifold M to a system of ODEs.
+The existence of integral curves enables us to define the notion of a flow. 
+At each point p $\epsilon$ \textbf{M} we can imagine moving a parameter a distance \textit{t} along the integral curve $\gamma$ of X through p. 
+If we do this for all points of \textbf{M} simultaneously we get a \textbf{flow} along X. 
+We can think of this movement as the flow of a fluid as shown in the figure \ref{fig:flow}.
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{figures/flow.png}
+        \caption{Flowing along the integral curves of a vector field}
+        \label{fig:flow}
+    \end{center}
+\end{figure}
+
+For any open set \textbf{U} of \textbf{M} and any p $\epsilon$ \textbf{U}, define $\gamma_p(t)$ to be the integral curve of X through p, with p = $\gamma_p(0)$. 
+Then the map $\phi_t$: \textbf{U} $\rightarrow$ \textbf{M} given by $\gamma_p(0) \rightarrow  \gamma_p(t)$ is a \textbf{flow}, 
+or a \textbf{one-parameter group of diffeomorphisms} of \textbf{M} generated by the vector field X. 
+Using this flow, we can generalize the notion of the directional derivative to tensor fields.
+In terms of flow $\phi_t$,
+\begin{equation}
+    (Xf)_p =  \lim_{t\to 0} \frac{f_{\phi_t p} - f_p}{t} 
+\end{equation}
+where $f_p$ = $f(p)$ and $\phi_t p$ = $\gamma_p(t)$
+
+But we cannot do the same with tensors as T$_p$ and T$_{\phi_t p}$ lie on different unrelated vector spaces and thus we cannot subtract them.
+However, if we drag T$_{\phi_t p}$ back to p (using pullback) by means of flow $\phi_t$ then we can compare its value with T$_p$. 
+So, the right way to define is,
+\begin{equation}
+    (Xf)_p =  \lim_{t\to 0} \frac{\phi_t^* f - f}{t} \Bigg|_{p}
+\end{equation}
+
+By analogy we can define our generalized directional derivative $\mathcal{L}_X$ (\textbf{Lie derivative})
+of a tensor field T in the direction X at p by
+\begin{equation}
+    (\mathcal{L}_X T)_p =  \lim_{t\to 0} \frac{\phi_t^* T - T}{t} \Bigg|_{p} = \frac{d}{dt}\phi_t^* T \Bigg|_{p}
+\end{equation}
+
+\textbf{Properties of Lie Derivative:}
+\begin{enumerate}
+    \itemsep0em
+    \item \textbf{preserves tensor type} 
+    \item  is \textbf{linear: } $\mathcal{L}_X (S + T)$ = $\mathcal{L}_X S \: T + S \: \mathcal{L}_X T$ 
+    \item is a \textbf{derivation: } $\mathcal{L}_X (S \otimes T)$ = $\mathcal{L}_X \otimes S \: T + S \: \mathcal{L}_X\otimes T$
+    \item is compatible with the \textbf{natural pairing} of forms and vector fields: 
+    $\mathcal{L}_X \langle\omega, Y \rangle$ = $\langle\mathcal{L}_X \omega, Y \rangle$ + $\langle\omega, \mathcal{L}_X Y \rangle$
+    \item \textbf{commutation: } For any vector field Y, $\mathcal{L}_X$Y = [X, Y]
+    \item For vector fields X, Y, and Z, [$\mathcal{L}_X, \mathcal{L}_Y$]Z = $\mathcal{L}_{[X, Y]}$Z
+\end{enumerate}
 
 \newpage
