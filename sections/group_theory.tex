@@ -223,14 +223,29 @@ Thus, S$_4$ has 5 conjugacy classes.
 
 \textbf{Theorem: } In S$_n$ $g \sim h$ iff \textit{g} and \textit{h} have the same cycle type.
 
-
-
-
 \subsection{Lie Group}
 \href{https://aimath.org/E8/liegroup.html#:~:text=Lie%20groups%20lie%20at%20the,are%20examples%20of%20smooth%20manifolds.}{Lie group}
-The definition above is easy to use, but it is not defined for Lie groups that are not matrix groups,  and it is not clear that the \href{https://en.wikipedia.org/wiki/Lie_group}{exponential map}
-of a Lie group does not depend on its representation as a matrix group. 
-We can solve both problems using a more abstract definition of the exponential map that works for all Lie groups.
+(G, $\bullet$) is a group that is also differentiable manifold. Lie group (G, $\bullet$) is
 
+i. a group with group operator $\bullet$ \\
+ii. G is a smooth manifold and \\
+iii. the maps: (group operation of multiplication) $\mu :$ G $\times$ G $\rightarrow$ G which maps $(g_1, g_2) \rightarrow g_1\bullet g_2$ and
+(group operation of inversion) $i :$ G $\rightarrow$ G which maps $g \rightarrow g^{-1}$ are both smooth maps.
+
+This means a Lie group is a group with a geometric and algebraic structure and the structure must be compatible in a precise way. 
+For example let us consider a S$^1$ group of complex unit circles defined as,
+\begin{equation}
+    S^1 := \{z \: \epsilon \: \mathbb{C} \: | \: |z| = 1\}
+\end{equation}
+
+and let the operator $\bullet$ be the multiplication on complex numbers $^*\mathbb{C}$. 
+S$^1$ is obviously a group. For two complex numbers $z_1$ and $z_2$ the multiplication operator $^*\mathbb{C}$ multiplies the radii of and adds the angles as
+\begin{equation}
+    z_1*z_2 = r_1e^{i\theta_1} * r_2e^{i\theta_2} = r_1*r_2e^{i(\theta_1+\theta_2)}
+\end{equation}
+
+This preserves the continuity of symmetry, so S$^1$ is smooth. 
+Also, due to definition of multiplication and inversion, both the group operation of multiplication and inversion are also manifold.
+This makes the group S$^1$ a Lie group. Moreover, the group operations are commutative, so the Lie group is \textbf{Abelian}.
 
 \newpage
