@@ -224,13 +224,14 @@ Thus, S$_4$ has 5 conjugacy classes.
 \textbf{Theorem: } In S$_n$ $g \sim h$ iff \textit{g} and \textit{h} have the same cycle type.
 
 \subsection{Lie Group}
+\subsubsection{Definition}
 \href{https://aimath.org/E8/liegroup.html#:~:text=Lie%20groups%20lie%20at%20the,are%20examples%20of%20smooth%20manifolds.}{Lie group}
-(G, $\bullet$) is a group that is also differentiable manifold. Lie group (G, $\bullet$) is
+(\textbf{L}, $\bullet$) is a group that is also differentiable manifold. Lie group (\textbf{L}, $\bullet$) is
 
 i. a group with group operator $\bullet$ \\
-ii. G is a smooth manifold and \\
-iii. the maps: (group operation of multiplication) $\mu :$ G $\times$ G $\rightarrow$ G which maps $(g_1, g_2) \rightarrow g_1\bullet g_2$ and
-(group operation of inversion) $i :$ G $\rightarrow$ G which maps $g \rightarrow g^{-1}$ are both smooth maps.
+ii. \textbf{L} is a smooth manifold and \\
+iii. the maps: (group operation of multiplication) $\mu :$ \textbf{L} $\times$ \textbf{L} $\rightarrow$ \textbf{L} which maps $(g_1, g_2) \rightarrow g_1\bullet g_2$ and
+(group operation of inversion) $i :$ \textbf{L} $\rightarrow$ \textbf{L} which maps $g \rightarrow g^{-1}$ are both smooth maps.
 
 This means a Lie group is a group with a geometric and algebraic structure and the structure must be compatible in a precise way. 
 For example let us consider a S$^1$ group of complex unit circles defined as,
@@ -254,5 +255,51 @@ $r_1 = r_2 = 1$, since $|z| = 1$.
 This preserves the continuity of symmetry, so S$^1$ is smooth. 
 Also, due to definition of multiplication and inversion, both the group operation of multiplication and inversion are also manifold.
 This makes the group S$^1$ a Lie group. Moreover, the group operations are commutative, so the Lie group is \textbf{Abelian}.
+
+\subsubsection{Lie Algebra}
+An algebra, A is a vector space over $\mathbb{C}$ with multiplication operator * defined as *:A $\times$ A $\rightarrow$ A.
+A typical algebra follows scalar multiplication and distributivity while commutativity and associativity are optinal.
+Let $\alpha, \beta, \gamma \: \epsilon$ A and c $\epsilon \: \mathbb{C}$ then
+
+i. c ($\alpha * \beta$) = (c $\alpha) * \beta$ = $\alpha * (c \: \beta$) \\
+ii. $\alpha * (\beta + \gamma $) = ($\alpha * \beta) + (\alpha* \gamma $)
+
+Similarly, Lie algebra $\mathcal{L}$ is an algebra with operator [ , ] defined as [ , ]:$\mathcal{L} \times \mathcal{L} \rightarrow \mathcal{L}$.
+Besides general properties of an algebra, Lie algebra has two other properties:
+$\forall \: \alpha, \beta, \gamma \: \epsilon \: \mathcal{L}$
+
+i. \textbf{skew-symmetry: } [$\alpha, \beta$] = - [$\beta, \alpha$] and [$\alpha, \alpha$] = 0 \\
+ii. \textbf{Jacobi identity: } [$\alpha$, [$\beta, \gamma$]] + [$\beta$, [$\gamma, \alpha$]] + [$\gamma$, [$\alpha, \beta$]] = 0
+
+These two properties are similar to vector multiplication.
+
+\subsubsection{Exponential Map}
+\href{https://en.wikipedia.org/wiki/Exponential_map_(Lie_theory)}{Exponential map} is a map from Lie algebra $\mathcal{L}$ of a Lie group \textbf{L} to the group, \textbf{exp:} $\mathcal{L} \rightarrow$ \textbf{L}, 
+which allows one to recapture the local group structure from the Lie algebra. The ordinary exponential function is a special case of the exponential map when 
+group G is the multiplicative group of positive real numbers (whose Lie algebra is the additive group of all real numbers).
+
+The exponential of \textit{X} $\epsilon \: \mathcal{L}$ is denoted as \textbf{exp}(\textit{X}) and given by
+\begin{equation}
+    \textbf{exp}(X) = \sum_{k=0}^{\infty} \frac{X^k}{k!}
+\end{equation}
+
+If \textbf{L} be a \href{https://en.wikipedia.org/wiki/Lie_group#Matrix_Lie_groups}{matrix Lie group} then \textit{X} must have and inverse and det(\textit{X}) $\neq$ 0, so
+there exists a matrix $\alpha$, logarithm of \textit{X} s.t.
+\begin{equation}
+    X = \textbf{exp}(\alpha) = \sum_{k=0}^{\infty} \frac{\alpha^k}{k!}
+\end{equation}
+
+The set of all matrices $\alpha$ whose exponentials belong to a group \textbf{L} is known as the Lie algebra, $\mathcal{L}$ of \textbf{L}.
+Using the deﬁnition of the exponential series, we have
+\begin{equation}
+    X = \lim_{k \rightarrow \infty} \Big(I + \frac{\alpha}{k} \Big)^k \; \text{  and  } \; \alpha = \lim_{k \rightarrow \infty} k(X^{1/k}-I)
+\end{equation}
+
+For large k, the matrix (I + $\alpha$/k) is an operator of the group and gives \textit{X} by iteration. 
+It is an \textbf{infinitesimal operator}, since for large k it diﬀers from the identity operator by an inﬁnitesimal amount.
+Lie group is a manifold with a group structure and Lie algebra is its \textbf{tangent space}.
+Elements of Lie algebra to a Lie group are sometimes referred to as \textbf{generators} of the group.
+The Lie algebra can be thought of as the \textbf{infinitesimal vectors/operators} generating the group (at least locally) by means of
+exponential map, but the Lie algebra doesn't form a generating set in strict sense.
 
 \newpage
