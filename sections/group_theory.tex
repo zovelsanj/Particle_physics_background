@@ -303,4 +303,79 @@ Elements of Lie algebra to a Lie group are sometimes referred to as \textbf{gene
 The Lie algebra can be thought of as the \textbf{infinitesimal vectors/operators} generating the group (at least locally) by means of
 exponential map, but the Lie algebra doesn't form a generating set in strict sense.
 
+\subsubsection{Generators of Lie Group}
+Let $\alpha_j$ be a set of parameters the parameterize the Lie group \textbf{L} such that 
+\begin{equation}
+    \textit{g}(\alpha)|_{\alpha=0} = e
+\end{equation}
+where e is the identity element of Lie group \textbf{L}.
+
+Let D be a representation of \textbf{L} then the linear operators of the representation will be parameterized the same way,
+\begin{equation}
+    D(\alpha)|_{\alpha=0} = I
+\end{equation}
+where I is the identity operator.
+
+Then in some neighborhood of the identity element, we can Taylor expand D($\alpha$) as
+\begin{equation}
+    D(d\alpha) = 1 + i d\alpha_a X_a + ....
+\end{equation}
+where d$\alpha$ is infinitesimal and the sum over repeated indices should be understood as the "Einstein summation convention".
+
+Then the generators of \textbf{L} are
+\begin{equation}
+    X_a = -i \frac{\partial D}{\partial \alpha_a}(\alpha)\Big|_{\alpha=0}
+\end{equation}
+
+In such a case,
+\begin{equation}
+    D(\alpha) = e^{iX_a\alpha^a}
+\end{equation}
+
+Why do we want to study Lie group through their generators? 
+The truth is that the generators form an Algebra under \textbf{matrix commutation}. First of all, it is observed that the generators must all be operators in the same vector space 
+the representation of the Lie Group maps to, so they must also form an operator vector space just like the group elements themselves. 
+The only thing we need to check is that there exists a bilinear product in the vector space of the generators. 
+The fact is that there is such a bilinear product called matrix commutator.
+
+Let two group elements e$^{i\alpha^aX_a}$ and e$^{i\beta^bX_b}$, where $\alpha^a$ and $\beta^b$ are just two different set of
+parameters for the Lie group, then by group closure,
+\begin{equation}
+    e^{i\alpha^aX_a} e^{i\beta^bX_b} = e^{i\delta^cX_c}
+\end{equation}
+
+Then we can write, 
+\begin{equation}
+    i\delta^cX_c = ln(e^{i\alpha^aX_a} e^{i\beta^bX_b}) = ln(1+ e^{i\alpha^aX_a} e^{i\beta^bX_b} -1) = ln(1+K)
+\end{equation}
+
+where \textit{K} = $e^{i\alpha^aX_a} e^{i\beta^bX_b} -1$
+
+Then performing binomial expansion we finally get,
+\begin{equation}
+    i\delta^cX_c = i\alpha^aX_a + i\beta^bX_b - \alpha^aX_a \beta^bX_b - \frac{1}{2}\Big((\alpha^aX_a)^2-(\beta^bX_b)^2\Big) + \frac{1}{2}\Big(\alpha^aX_a + \beta^bX_b\Big)^2 + ....
+\end{equation}
+where the term 
+\begin{equation}
+    \Big((\alpha^aX_a)^2-(\beta^bX_b)^2\Big) + \Big(\alpha^aX_a + \beta^bX_b\Big)^2 = [\alpha^aX_a, \beta^bX_b]
+\end{equation}
+known as commutation operation.
+No matter what the infinite sum in the right-hand side will be, it must be some linear combination of the generators multiply by \textit{i}.
+Lets call it the linear combination $\gamma^c X_c$. Then,
+\begin{equation}
+    \begin{aligned}
+        \relax [\alpha^aX_a, \beta^bX_b] = i\gamma^c X_c = i \alpha^a \beta^b f^c_{ab} X_c\\
+       \implies [X_a, X_b] = i f^c_{ab} X_c 
+    \end{aligned}
+\end{equation}
+where $f^c_{ab}$ are called the structural constants of the Lie Algebra. 
+Even if we call them constants, $f^c_{ab}$ is really a three-tensor of constants.
+
+For arbitrarily given $X_a$ , $X_b$ , $X_c$ , we can map from any two of the three generators to another one using matrix commutation. 
+Thus, matrix commutator forms a bilinear product of the vector space of generators. 
+The matrix commutators '[ , ]' are often called \textbf{Lie Bracket} in order to distinguish with another possible bilinear product for the generators \textbf{Poisson Bracket} '\{ , \}'.
+In physics, Poisson Bracket is often used when we are working with classical Hamilton's equations. 
+When the Poisson Bracket is replaced by Lie Bracket, it automatically implies the Hamiltonian or the Lagrangian is mapped to some Hilbert Space where the matrix
+algebra works and the full Hamiltonian equation of motion reduces to the \textbf{Heisenberg picture} of quantum mechanics.
+
 \newpage
