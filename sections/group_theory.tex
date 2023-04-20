@@ -128,8 +128,8 @@ then you can choose the eigenstates of H to transform according to irreducible r
 If an irreducible representation appears only once in the Hilbert space, every state in the irreducible representation 
 is an eigenstate of H with the same eigenvalue.
 
-For Abelian groups, this procedure of choosing the H eigenstates to transform under irreducible representations is analogous to simulta-
-neously diagonalizing H and D(\textit{g}) because for an Abelian group that commutes with the H, the group elements can simultaneously
+For Abelian groups, this procedure of choosing the H eigenstates to transform under irreducible representations is analogous to simultaneously 
+diagonalizing H and D(\textit{g}) because for an Abelian group that commutes with the H, the group elements can simultaneously
 diagonalized along with H. This is a consequence of theorem,
 
 \textbf{Theorem:} All of the irreducible representations of a finite Abelian group are 1-dimensional.
@@ -138,7 +138,7 @@ For a non-Abelian group, we cannot simultaneously diagonalize all of the D(\text
 but we can completely reduce the representation on each subspace of constant H.
 A classical problem which is quite analogous to the problem of diagonalizing the Hamiltonian  in quantum mechanics 
 is the problem of finding the normal modes of small oscillations of a mechanical system about a point of stable equilibrium. 
-Here, the square of the angular frequency is the eigen value of the M$^{-1}$K matrix and the normal modes are the eigenvectors of M$^{-1}$K.
+Here, the square of the angular frequency is the eigenvalue of the M$^{-1}$K matrix and the normal modes are the eigenvectors of M$^{-1}$K.
 
 \subsection{Tensor Product Representation}
 Suppose that D$_1$ is an m-dimensional representation acting on a space with basis vectors $|j\rangle$ for j = 1 to m and 
@@ -162,8 +162,8 @@ Commonly used notation is where each cycle is written as a set of numbers in par
 indicating the set of things that are cyclicly permuted. For eg.:
 
 (1) means x$_1 \: \rightarrow$ x$_1$ \\
-(1372) means X$_1 \: \rightarrow$ X$_3 \: \rightarrow$ X$_7 \: \rightarrow$ X$_2 \: \rightarrow$ X$_1$ \\
-(1372)(4) means X$_1 \: \rightarrow$ X$_3 \: \rightarrow$ X$_7 \: \rightarrow$ X$_2 \: \rightarrow$ X$_1$ while x$_4$ remains unchanged.
+(1372) means x$_1 \: \rightarrow$ x$_3 \: \rightarrow$ x$_7 \: \rightarrow$ x$_2 \: \rightarrow$ x$_1$ \\
+(1372)(4) means x$_1 \: \rightarrow$ x$_3 \: \rightarrow$ x$_7 \: \rightarrow$ x$_2 \: \rightarrow$ x$_1$ while x$_4$ remains unchanged.
 Thus, (1372)(4) = (1372)
 
 Let a particular permutation of a set M = \{1, 2, 3, 4, 5\} written as
@@ -174,7 +174,7 @@ Let a particular permutation of a set M = \{1, 2, 3, 4, 5\} written as
    \end{pmatrix}
 \end{equation}
 
-This means that $\sigma$ statisfies $\sigma$(1) = 2, $\sigma$(2) = 5, $\sigma$(3) = 4, $\sigma$(4) = 3, and $\sigma$(5) = 1.
+This means that $\sigma$ satisfies $\sigma$(1) = 2, $\sigma$(2) = 5, $\sigma$(3) = 4, $\sigma$(4) = 3, and $\sigma$(5) = 1.
 It can be written in cycle notation as $\sigma$ = (125)(34).
 An arbitrary element has k$_i$ i-cycles, where
 \begin{equation}
@@ -257,8 +257,9 @@ Also, due to definition of multiplication and inversion, both the group operatio
 This makes the group S$^1$ a Lie group. Moreover, the group operations are commutative, so the Lie group is \textbf{Abelian}.
 
 \subsubsection{Lie Algebra}
-An algebra, A is a vector space over $\mathbb{C}$ with multiplication operator * defined as *:A $\times$ A $\rightarrow$ A.
-A typical algebra follows scalar multiplication and distributivity while commutativity and associativity are optinal.
+An algebra, A over a field is a vector space over $\mathbb{C}$ equipped with bilinear product * defined as *:A $\times$ A $\rightarrow$ A.
+Algebra is defined over a field implies that the vector space is also equipped with addition, multiplication, and scalar multiplication from the field.
+Typically, algebra follows scalar multiplication and distributivity while commutativity and associativity are optional.
 Let $\alpha, \beta, \gamma \: \epsilon$ A and c $\epsilon \: \mathbb{C}$ then
 
 i. c ($\alpha * \beta$) = (c $\alpha) * \beta$ = $\alpha * (c \: \beta$) \\
@@ -290,13 +291,13 @@ there exists a matrix $\alpha$, logarithm of \textit{X} s.t.
 \end{equation}
 
 The set of all matrices $\alpha$ whose exponentials belong to a group \textbf{L} is known as the Lie algebra, $\mathcal{L}$ of \textbf{L}.
-Using the deﬁnition of the exponential series, we have
+Using the definition of the exponential series, we have
 \begin{equation}
     X = \lim_{k \rightarrow \infty} \Big(I + \frac{\alpha}{k} \Big)^k \; \text{  and  } \; \alpha = \lim_{k \rightarrow \infty} k(X^{1/k}-I)
 \end{equation}
 
 For large k, the matrix (I + $\alpha$/k) is an operator of the group and gives \textit{X} by iteration. 
-It is an \textbf{infinitesimal operator}, since for large k it diﬀers from the identity operator by an inﬁnitesimal amount.
+It is an \textbf{infinitesimal operator}, since for large k it diﬀers from the identity operator by an infinitesimal amount.
 Lie group is a manifold with a group structure and Lie algebra is its \textbf{tangent space}.
 Elements of Lie algebra to a Lie group are sometimes referred to as \textbf{generators} of the group.
 The Lie algebra can be thought of as the \textbf{infinitesimal vectors/operators} generating the group (at least locally) by means of

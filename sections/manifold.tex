@@ -37,7 +37,7 @@ Consequently, the union of all open sets contained in S is the int(S).
 Similarly, x is called an \textbf{exterior point} of S if x is an interior point of X-S and the set of all exterior points of S
 is called the \textbf{exterior} of S, \textbf{ext(S)}.
 
-\textbf{c. Closure: } Closure of S $\subset$ X, \textbf{Cl(S)} is the intersections of all the closed sets cotaining S.
+\textbf{c. Closure: } Closure of S $\subset$ X, \textbf{Cl(S)} is the intersections of all the closed sets containing S.
 Set S is called \textbf{dense} if Cl(S) = X.
 
 \textbf{d. Cover: } An \href{https://en.wikipedia.org/wiki/Cover_(topology)}{\textbf{open cover}} of S $\subset$ X is a collection of {U$_\alpha$} of open sets in X
@@ -81,7 +81,7 @@ A \textbf{property} P(X) is a \textbf{topological invariant} of X if X $\approx$
 P(X) depends only on the topology of X. The property P(X) is a \textbf{complete topological invariant} of a space X provided that P(X) = P(Y) iff X $\approx$ Y. 
 Topology can be loosely characterized as the study of the topological invariants of spaces.
 
-\subsection{Multivariable Calculus} \label{Multivariable Calculus}
+\subsection{Multivariate Calculus} \label{Multivariable Calculus}
 Let U $\subset \mathbb{R}^n$ be an open set and suppose that f: U $\rightarrow \mathbb{R}$ is a function. 
 Label the points of $\mathbb{R}^n$ by the n-tuples x = (x$^1$, ..., x$^n$ ). Then the \href{https://en.wikipedia.org/wiki/Partial_derivative}{partial derivative} $\partial$f /$\partial$x$^i$
 is defined by
@@ -147,7 +147,7 @@ In other words, a set of functions {f$^i$(x)} on $\mathbb{R}^n$ constitutes a \t
 neighborhood of a point x if the transformation (x$^1$, ..., x$^n$ ) $\rightarrow$ (f$^1$ (x$^1$, ..., x$^n$ ), ..., f$^n$ (x$^1$, ..., x$^n$)) is a diffeomorphism.
 Ascertaining whether a map is a diffeomorphism can be difficult. 
 But checking whether a Jacobian vanishes is usually easy. 
-The \textbf{IFT} assures that, as long as the Jacobian of the transformation is nonsingular, 
+The \textbf{IFT} assures that, as long as the Jacobian of the transformation is non-singular, 
 we can coordinatize the neighborhood of x with the functions f$^i$.
 
 \subsection{Differential Manifold (Smooth Manifold or C\texorpdfstring{$_\infty$ } d)}
@@ -232,7 +232,7 @@ if f$^{-1}$ exists and is smooth, in which case we say that \textbf{M} and \text
 
 Because smooth maps of manifolds reduce to smooth maps of Euclidean space, 
 the inverse function theorem works for manifolds in the same way as it does in Euclidean space: 
-if the Jacobian matrix of f is nonsingular then f is a local diffeomorphism. 
+if the Jacobian matrix of f is non-singular then f is a local diffeomorphism. 
 In particular, M and N can only be \textbf{diffeomorphic} if m = n.
 
 \subsection{\href{https://mathweb.ucsd.edu/~eizadi/250A-2019/Patrick-Girardet.pdf}{Immersion and Embedding}}
@@ -508,7 +508,7 @@ In particular, we think of the smooth functions on \textbf{M} as \textbf{0-forms
 
 \subsection{Exterior Derivative}
 We now introduce a natural differential operator on k-forms, denoted by 'd'. 
-It is a far reaching generalization of the ordinary gradient, curl, and divergence operators of multivariable calculus.
+It is a far reaching generalization of the ordinary gradient, curl, and divergence operators of multivariate calculus.
 
 \textbf{Theorem: } There exists a unique linear operator d:$\Omega^k$(\textbf{M}) $\rightarrow$ $\Omega^{k+1}$(\textbf{M}) called the exterior derivative, satisfying the following properties. 
 For any forms $\lambda$ and $\mu$, and for any function \textit{f} , the operator d is
@@ -533,7 +533,7 @@ Let \textit{f}: \textbf{M}$\rightarrow$\textbf{N} be a smooth map of manifolds.
 Given a smooth map \textit{g}: \textbf{N}$\rightarrow \mathbb{R}$ we define a new map $f^*g$: \textbf{M}$\rightarrow \mathbb{R}$ by  $f^*g$ = $g\circ f$. 
 The map $f^*g$ is called the \textbf{pullback} of \textit{g} by \textit{f}, because the function \textit{g} is “pulled back” from \textbf{N} to \textbf{M}.
 In simple terms, pullback is the composition of smooth maps. 
-Apullback map is extended to forms by requiring it to be
+A pullback map is extended to forms by requiring it to be
 
 1. \textbf{a ring homomorphism: } $f^*(\lambda + \mu)$ = $f^*\lambda$ + $f^*\mu$, $f^*(\lambda \exterior \mu)$ = $f^*\lambda \exterior f^*\mu$ and \\
 2. \textbf{natural: } d($f^*\lambda$) = $f^*$(d$\lambda$).
