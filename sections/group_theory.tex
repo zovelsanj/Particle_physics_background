@@ -347,6 +347,7 @@ parameters for the Lie group, then by group closure,
 Then we can write, 
 \begin{equation}
     i\delta^cX_c = ln(e^{i\alpha^aX_a} e^{i\beta^bX_b}) = ln(1+ e^{i\alpha^aX_a} e^{i\beta^bX_b} -1) = ln(1+K)
+    \label{eqn:lie_expansion}
 \end{equation}
 
 where \textit{K} = $e^{i\alpha^aX_a} e^{i\beta^bX_b} -1$
@@ -367,9 +368,16 @@ Lets call it the linear combination $\gamma^c X_c$. Then,
         \relax [\alpha^aX_a, \beta^bX_b] = i\gamma^c X_c = i \alpha^a \beta^b f^c_{ab} X_c\\
        \implies [X_a, X_b] = i f^c_{ab} X_c 
     \end{aligned}
+    \label{eqn:lie_bracket}
 \end{equation}
-where $f^c_{ab}$ are called the structural constants of the Lie Algebra. 
+The commutation relation \ref{eqn:lie_bracket} is called the Lie algebra of the group
+which are completely determined by the constants $f^c_{ab}$ called the structural constants of the Lie Algebra. 
 Even if we call them constants, $f^c_{ab}$ is really a three-tensor of constants.
+
+We might wonder if we keep expanding \ref{eqn:lie_expansion} beyond second order, we would need additional conditions to make sure that the group multiplication law is maintained. 
+The remarkable thing is that we don't. The commutator relation \ref{eqn:lie_bracket} is enough. 
+In fact with structural constants $f^c_{ab}$ we can reconstruct as accurately as we like for any $\alpha$ and $\beta$ in some finite neighborhood of the origin. 
+Thus the $f^c_{ab}$ are very important-they summarize virtually the entire group multiplication law.
 
 For arbitrarily given $X_a$ , $X_b$ , $X_c$ , we can map from any two of the three generators to another one using matrix commutation. 
 Thus, matrix commutator forms a bilinear product of the vector space of generators. 
