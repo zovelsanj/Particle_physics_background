@@ -386,4 +386,93 @@ In physics, Poisson Bracket is often used when we are working with classical Ham
 When the Poisson Bracket is replaced by Lie Bracket, it automatically implies the Hamiltonian or the Lagrangian is mapped to some Hilbert Space where the matrix
 algebra works and the full Hamiltonian equation of motion reduces to the \textbf{Heisenberg picture} of quantum mechanics.
 
+\subsubsection{SU(2) and SU(3) Groups}
+Unit rotation in 2-dimension is the SO(2) group given by
+\begin{equation}
+    R(\theta) = \begin{pmatrix}
+        cos\theta & -sin\theta \\ 
+        sin\theta & cos\theta \\ 
+\end{pmatrix}
+\label{eqn:2d_R}
+\end{equation}
+
+However, a 3-dimensional representation of SO(2) is different from SO(3).
+An SO(2) group in $\mathbb{R}^3$ is
+\begin{equation}
+    R(\theta) = \begin{pmatrix}
+        1 & 0 & 0 \\ 
+        0 & cos\theta & -sin\theta \\ 
+        0 & sin\theta & cos\theta \\ 
+\end{pmatrix}
+\end{equation}
+
+which is a unit rotation along the axis of unit vector (1, 0, 0) and this group doesn't represent akk 3D unit rotations.
+There doesn't exist a 2D representation of a 3D rotation but there exists a 2D representation of some group whose algebra is the same as SO(3),
+the group is called SU(2), which is defined in complex space.
+
+To represent SO(2) using complex number we first define
+\begin{equation}
+    1 = \begin{pmatrix}
+        1 & 0 \\ 
+        0 & 1 \\ 
+\end{pmatrix}, \;
+i = \begin{pmatrix}
+    0 & -1 \\ 
+    1 & 0 \\ 
+\end{pmatrix}
+\end{equation}
+then equation \ref{eqn:2d_R} can be represented as
+\begin{equation}
+    R(\theta) = cos\theta + sin\theta
+\end{equation}
+
+This equation forms a Lie group called U(1) where real number '1' is the generator of U(1) since
+\begin{equation}
+    e^{i*1\theta} = cos\theta + i sin\theta
+\end{equation}
+
+We can easily build a complex version of the SO(2) algebra because the entire symmetry group relies only on two degrees of freedom, 
+so we can effectively use a single complex number to capture the dof. 
+However, two dof is not enough for SO(3), so we consider higher dimension which leads us to U(2).
+We can claim that only those unitary operators with determinant 1 will be sufficient to model the Algebra of SO(3) given that SO(3) has determinant 1 as well.
+The unitary operators with determinant 1 are called \textbf{Special Unitary} operators and they form the group SU(2).
+\begin{equation}
+    SU(2) = \left\{
+        \begin{pmatrix}
+        \alpha & -\beta^* \\ 
+        \beta & \alpha \\ 
+    \end{pmatrix}: 
+    \alpha, \beta \: \epsilon \: \mathbb{C}, |\alpha|^2+|\beta|^2=1
+    \right\}
+\end{equation}
+
+The implication of the matrix elements of SU(2) in the usual two dimensional representation is that SU (2)
+gives a maximum of four degrees of freedom, with two degree of freedom for each complex number. We then
+need four basis operators to write all operators in SU(2). 
+\begin{equation}
+    1 = \begin{pmatrix}
+        1 & 0 \\ 
+        0 & 1 \\ 
+    \end{pmatrix}, \;
+    i = \begin{pmatrix}
+        0 & i \\ 
+        i & 0 \\ 
+    \end{pmatrix}, \; 
+    j = \begin{pmatrix}
+        0 & 1 \\ 
+        -1 & 0 \\ 
+    \end{pmatrix}, \;
+    k = \begin{pmatrix}
+        i & 0 \\ 
+        0 & -i \\ 
+    \end{pmatrix}
+\end{equation}
+
+where $i^2 = j^2 = k^2 = -1$.
+and every other element \textit{m} of SU(2) can be written as
+\begin{equation}
+    m = a + bi + cj + dk
+\end{equation}
+this is called \textbf{quaternion}.
+
 \newpage
