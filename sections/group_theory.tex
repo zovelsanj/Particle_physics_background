@@ -474,5 +474,76 @@ and every other element \textit{m} of SU(2) can be written as
     m = a + bi + cj + dk
 \end{equation}
 this is called \textbf{quaternion}.
+We can then express our SO(3) basis operators $R_x(\theta)$, $R_y(\theta)$, and $R_z(\theta)$ as
+\begin{equation}
+    \begin{aligned}
+        t_x(\theta) = cos(\theta) + sin(\theta) i \\
+        t_y(\theta) = cos(\theta) + sin(\theta) j \\
+        t_z(\theta) = cos(\theta) + sin(\theta) k
+    \end{aligned}
+\end{equation}
+
+SU(2) is a dual cover of SO(3) which means we can map exactly two elements of SU(2) i.e. two $t$'s in SU(2) to one $R(\theta)$ in SO(3),
+so if we consider a convex combination of $t_x$ , $t_y$ , and $t_z$, we span all elements of the entire SO(3).
+We can examine the generators of the above 2D representation of SU(2):
+\begin{equation}
+    \begin{aligned}
+        \sigma_x = -i \frac{dt_x}{d\theta}(0) = 
+        -i \begin{pmatrix}
+        -sin(0) & icos(0) \\ 
+        icos(0) & -sin(0) \\ 
+    \end{pmatrix} 
+    \begin{pmatrix}
+        0 & 1 \\ 
+        1 & 0 \\ 
+    \end{pmatrix} \\
+    \sigma_y = -i \frac{dt_y}{d\theta}(0) = 
+        -i \begin{pmatrix}
+        -sin(0) & cos(0) \\ 
+        -cos(0) & -sin(0) \\ 
+    \end{pmatrix} 
+    \begin{pmatrix}
+        0 & -i \\ 
+        i & 0 \\ 
+    \end{pmatrix} \\
+    \sigma_z = -i \frac{dt_z}{d\theta}(0) = 
+        -i \begin{pmatrix}
+        -sin(0) + icos(0) & 0\\ 
+        0 & -sin(0) - icos(0) \\ 
+    \end{pmatrix} 
+    \begin{pmatrix}
+        1 & 0 \\ 
+        0 & -1 \\ 
+    \end{pmatrix}
+    \end{aligned}
+\end{equation}
+These are called \textbf{Pauli matrices} and for $i \neq j \neq k$
+\begin{equation}
+    [\sigma_i, \sigma_j] = 2i\epsilon_{ijk}\sigma_k
+\end{equation}
+Thus, the structural constants of SU(2) and SO(3) algebra must be the same. 
+
+For example, the spin 1/2 representation is
+\begin{equation}
+    \begin{aligned}
+        J^{1/2}_1 = \frac{1}{2}
+    \begin{pmatrix}
+        0 & 1 \\ 
+        1 & 0 \\ 
+    \end{pmatrix} = \frac{\sigma_1}{2}\\
+    J^{1/2}_2 = \frac{1}{2}
+    \begin{pmatrix}
+        0 & -i \\ 
+        i & 0 \\ 
+    \end{pmatrix} = \frac{\sigma_2}{2}\\
+    J^{1/2}_3 = \frac{1}{2}
+    \begin{pmatrix}
+        1 & 0 \\ 
+        0 & -1 \\ 
+    \end{pmatrix} = \frac{\sigma_3}{2}
+    \end{aligned}
+\end{equation}
+The spin 1/2 representation is the simplest representation of SU(2). 
+It is called the \textbf{defining representation} of SU(2), and is responsible for the name Special Unitary (SU).
 
 \newpage
