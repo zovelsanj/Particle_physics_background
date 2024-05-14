@@ -1,5 +1,6 @@
 import argparse
 import numpy as np
+import jdata
 import uproot
 import awkward as ak
 import matplotlib.pyplot as plt
@@ -41,6 +42,7 @@ class ROOT():
         # load arrays from the tree (arrays may be of different lengths so will require padding or clipping)
         a = self.hep_tree.arrays(filter_name=['part_*', 'jet_pt', 'jet_energy', 'label_*'])
         if feature is None:
+            print("No specific feature defined, so computing all features")
             # compute new features
             a['part_mask'] = ak.ones_like(a['part_energy'])
             a['part_pt'] = np.hypot(a['part_px'], a['part_py'])
@@ -74,14 +76,16 @@ class ROOT():
 
             label_list = ['label_QCD', 'label_Hbb', 'label_Hcc', 'label_Hgg', 'label_H4q', 'label_Hqql', 'label_Zqq', 'label_Wqq', 'label_Tbqq', 'label_Tbl']
             self.fnl['label'] = np.stack([a[n].to_numpy().astype('int') for n in label_list], axis=1)
+            jdata.save(self.fnl, "data.json")
 
         else:
-            self.fnl[feature] = self.pad(a[feature], maxlen=126).to_numpy()
+            self.fnl[feature] = self.pad(a[feature], maxlen=max(map(len, a[feature]))).to_numpy()
 
     def plot_histpgram(self, feature, n_bins=100):
         plt.hist(self.fnl[feature], bins=n_bins)
         plt.title(f'${feature}$ distribution')
         plt.xlabel(f'${feature}$')
+        plt.xlim([min(map(min, self.fnl[feature])), max(map(max, self.fnl[feature]))])
         plt.ylabel('Number of particles')
         plt.show()
 
