@@ -30,3 +30,9 @@ This is a simple way to leverage the `ROOT C++` libraries with VS Code. However,
 After the setup, you will see the `IntelliSense` working as shown below.
 ![intellisense](../../images/intellisense.png)
 ![intellisense](../../images/intellisense-1.png)
+
+# Useful References
+1. [C++ codes documentation](https://root.cern/doc/master/group__tutorial__hist.html)
+2. [ROOT Primer](https://root.cern/primer/#interpretation-and-compilation)
+3. [Tutorial for Summer Students](https://indico.cern.ch/event/395198/)
+4. [Physics Matters Youtube Tutorial](https://www.youtube.com/watch?v=KPz-dNjdx40&list=PLLybgCU6QCGWLdDO4ZDaB0kLrO3maeYAe)
