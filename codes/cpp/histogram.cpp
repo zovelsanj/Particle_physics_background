@@ -1,6 +1,5 @@
-#include<TH1F.h>
-#include<TCanvas.h>
-#include<TRandom.h>
+#include "root_basics.hpp" //need not include the header when compiling with `root`
+
 void histogram()
 {
     TH1F *histogram = new TH1F("hist", "Histogram", 100, 0, 100);
