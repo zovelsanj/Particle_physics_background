@@ -2,6 +2,7 @@
 #include<TCanvas.h>
 #include<TRandom.h>
 #include<TGraph.h>
+#include<TGraphErrors.h>
 
 #pragma once
 class basicFeatures
