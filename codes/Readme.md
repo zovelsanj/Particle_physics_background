@@ -23,13 +23,13 @@ You may also find the same include files at `/snap/root-framework/current/usr/lo
 
 # Setup in VS Code
 Since VS Code, has many programming-friendly features such as IntelliSense, Debugger, etc., it is much convenient to use VS Code instead of traditional commandline-based editors and gedit. To use the `ROOT C++` libraries in VS Code you just need to set the include dir path at `Inlcude Path` in `C/C++ Configurations` as shown below:
-![vscode_setup](../../images/vscode_setup.png)
+![vscode_setup](../images/vscode_setup.png)
 
 This is a simple way to leverage the `ROOT C++` libraries with VS Code. However, there other ways to setup such as [autocompletion-with-vs-code](https://root-forum.cern.ch/t/autocompletion-with-vs-code/38188/3) and [root-on-vscode](https://github.com/AlbertoPdRF/root-on-vscode/blob/master/.vscode/launch.json).
 
 After the setup, you will see the `IntelliSense` working as shown below.
-![intellisense](../../images/intellisense.png)
-![intellisense](../../images/intellisense-1.png)
+![intellisense](../images/intellisense.png)
+![intellisense](../images/intellisense-1.png)
 
 # Useful References
 1. [C++ codes documentation](https://root.cern/doc/master/group__tutorial__hist.html)
