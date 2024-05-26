@@ -12,4 +12,5 @@ class basicFeatures
     public:
         void histogram();
         void graph(int N);
+        void fit_distribution();
 };
