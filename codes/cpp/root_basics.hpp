@@ -1,4 +1,5 @@
 #include<TH1F.h>
+#include<TF1.h>
 #include<TCanvas.h>
 #include<TRandom.h>
 #include<TGraph.h>
@@ -13,4 +14,5 @@ class basicFeatures
         void histogram();
         void graph(int N);
         void fit_distribution();
+        void get_params(TF1 *fit);
 };
