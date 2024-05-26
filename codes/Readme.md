@@ -36,16 +36,27 @@ After the setup, you will see the `IntelliSense` working as shown below.
 
 
 ## PyROOT Intellisense Setup
-`ROOT` installation with `snap` places the python libraries at `/snap/root-framework/931/usr/local/lib/`. By default just using `python3 <file_name>.py` doesn't recognizes the `ROOT` module. However, `pyroot <file_name>.py` does. But the problem with using `pyroot` is you cannot use Intellisense as it is not a python interpreter. Also, VS Code doesn't recognizes the `ROOT` module. 
+`ROOT` installation with `snap` places the python libraries at `/snap/root-framework/931/usr/local/lib/`. 
+![root_libs](../images/root_libs.png)
 
-To fix this, in`.config>Code>User>settings.json`, I included the following fields:
+By default.
 ```
-    "python.autoComplete.extraPaths": [
-        "/snap/root-framework/931/usr/local/lib/"
-    ],
-    "python.analysis.extraPaths": [
-        "/snap/root-framework/931/usr/local/lib/"
-    ]
+python3 <file_name>.py
+```
+doesn't recognizes the `ROOT` module. However, 
+```
+pyroot <file_name>.py
+```
+does. But the problem with using `pyroot` is you cannot use Intellisense as it is not a python interpreter. Also, VS Code doesn't recognizes the `ROOT` module. 
+
+To fix this, in `.config>Code>User>settings.json`, I included the following fields:
+```
+"python.autoComplete.extraPaths": [
+    "/snap/root-framework/931/usr/local/lib/"
+],
+"python.analysis.extraPaths": [
+    "/snap/root-framework/931/usr/local/lib/"
+]
 ```
 
 # Useful References
