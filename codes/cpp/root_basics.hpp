@@ -23,7 +23,7 @@ void basicFeatures::getParams(TF1* fit)
     std::cout << "mean: " << mean << ", sd: " << sd << ", var: " << pow(sd, 2) << std::endl;
 }
 
-void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_hashmap, Int_t border_size=4, Option_t *opt="l", Double_t xmin=0.7, Double_t ymin=0.7, Double_t xmax=0.9, Double_t ymax=0.9)
+void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_hashmap, Int_t border_size=4, Option_t *opt="l", Double_t xmin=0.7, Double_t ymin=0.7, Double_t xmax=0.85, Double_t ymax=0.85)
 {
     TLegend *leg = new TLegend(xmin, ymin, xmax, ymax);
     leg->Draw();
@@ -33,3 +33,4 @@ void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_has
         leg->AddEntry(it.second, it.first, opt);
     }
 }
+    
