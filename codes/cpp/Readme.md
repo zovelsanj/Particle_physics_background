@@ -62,3 +62,18 @@ hist->Fit("Gauss fit", "Q"); //`R` => stricts the fit curve range, `Q` => quiet 
 ```
 
 In the above code, `"Gauss fit"` is the name of the fit and `"gaus"` is the pre-defined formula which is defined under [TFormula](https://root.cern/doc/master/classTFormula.html) class. In the `Fit` method of `TH1` class, the argument `"Q"` is a fit option for supressing the CLI output. These options are described in [TH1](https://root.cern/doc/master/classTH1.html#a7e7d34c91d5ebab4fc9bba3ca47dabdd) class.
+
+## Legends
+```
+void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_hashmap, Int_t border_size=4, Option_t *opt="l", Double_t xmin=0.7, Double_t ymin=0.7, Double_t xmax=0.9, Double_t ymax=0.9)
+{
+    TLegend *leg = new TLegend(xmin, ymin, xmax, ymax);
+    leg->Draw();
+    leg->SetBorderSize(border_size);
+    for(auto &it:legend_hashmap)
+    {
+        leg->AddEntry(it.second, it.first, opt);
+    }
+}
+```
+The above method adds the legend entries taking the `TObject` and `legend name` as hash map.
