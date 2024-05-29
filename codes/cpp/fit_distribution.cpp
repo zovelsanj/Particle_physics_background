@@ -16,12 +16,13 @@ void fit_distribution()
     hist->SetXTitle("Distribution");
     hist->SetYTitle("Entries");
     hist->SetStats(0);
+    hist->SetFillColor(kBlue-9);
 
     TCanvas *c1 = new TCanvas();
     hist->Draw();
 
     TF1 *fit = new TF1("Gauss fit", "gaus", 0, 5);
-    hist->Fit("Gauss fit", "Q"); //`R` => stricts the fit curve range, `Q` => quiet terminal info
+    hist->Fit("Gauss fit", "Q");
     basicFeatures *b = new basicFeatures(); 
     b->get_params(fit);
     
@@ -29,5 +30,5 @@ void fit_distribution()
     legend_hashmap["histogram"] = hist;
     legend_hashmap["gaussian fit"] = fit;
 
-    b->get_legends(legend_hashmap);
+    b->get_legends(legend_hashmap, 0);
 }
