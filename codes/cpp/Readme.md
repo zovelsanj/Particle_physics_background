@@ -18,6 +18,7 @@ void histogram()
     histogram->Draw();
 }
 ```
+<img src="../../images/c1.jpg" width="500" height="350">
 
 The name of the `cpp` file should be same as the function name, else the following warning may appear:
 ```
@@ -25,6 +26,19 @@ warning: Failed to call `histogram()` to execute the macro.
 Add this function or rename the macro. Falling back to `.L`.
 ```
 In this case, if `histogram.cpp` contains the function other than `void histogram()`, then the above warning may arise (I guess, `root` interprets our `cpp` files as macro). 
+
+The color of the histogram can also be filled manually as,
+```
+hist->SetFillColor(kBlue-9);
+```
+where `kBlue` is an `EColor` enum. Subtraction on the enum will reduce the intensity of the color.
+
+<table>
+  <tr>
+    <td> <img src="../../images/kblue_hist.jpg"  alt="1"></td>
+    <td><img src="../../images/kblue-9_hist.jpg" alt="2" ></td>
+   </tr> 
+</table>
 
 Detailed documentation of histogram libraries[THXX](https://root.cern/doc/master/group__Hist.html) and [tutorials](https://root.cern/doc/master/group__tutorial__hist.html).
 
