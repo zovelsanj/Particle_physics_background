@@ -12,18 +12,18 @@ class basicFeatures
     private:
         /* data */
     public:
-        void get_params(TF1 *);
-        void get_legends(std::map<const char *, const TObject*>, Int_t, Option_t *, Double_t, Double_t, Double_t, Double_t);
+        void getParams(TF1 *);
+        void getLegends(std::map<const char *, const TObject*>, Int_t, Option_t *, Double_t, Double_t, Double_t, Double_t);
 };
 
-void basicFeatures::get_params(TF1* fit)
+void basicFeatures::getParams(TF1* fit)
 {
     Double_t mean = fit->GetParameter(1);
     Double_t sd = fit->GetParameter(2);
     std::cout << "mean: " << mean << ", sd: " << sd << ", var: " << pow(sd, 2) << std::endl;
 }
 
-void basicFeatures::get_legends(std::map<const char *, const TObject*> legend_hashmap, Int_t border_size=4, Option_t *opt="l", Double_t xmin=0.7, Double_t ymin=0.7, Double_t xmax=0.9, Double_t ymax=0.9)
+void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_hashmap, Int_t border_size=4, Option_t *opt="l", Double_t xmin=0.7, Double_t ymin=0.7, Double_t xmax=0.9, Double_t ymax=0.9)
 {
     TLegend *leg = new TLegend(xmin, ymin, xmax, ymax);
     leg->Draw();

@@ -24,11 +24,11 @@ void fit_distribution()
     TF1 *fit = new TF1("Gauss fit", "gaus", 0, 5);
     hist->Fit("Gauss fit", "Q");
     basicFeatures *b = new basicFeatures(); 
-    b->get_params(fit);
+    b->getParams(fit);
     
     std::map<const char *, const TObject*> legend_hashmap;
     legend_hashmap["histogram"] = hist;
     legend_hashmap["gaussian fit"] = fit;
 
-    b->get_legends(legend_hashmap, 0);
+    b->getLegends(legend_hashmap, 0);
 }
