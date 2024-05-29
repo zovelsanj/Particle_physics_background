@@ -47,4 +47,4 @@ TF1 *fit = new TF1("Gauss fit", "gaus", 0, 5);
 hist->Fit("Gauss fit", "Q"); //`R` => stricts the fit curve range, `Q` => quiet terminal info
 ```
 
-In the above code, `"Gauss fit"` is the name of the fit and `"gaus"` is the pre-defined formula which is defined under [TFormula](https://root.cern/doc/master/classTFormula.html) class. In the `Fit` method of `TH1` class, the argument `"Q"` is a fit option, which is described in [TH1](https://root.cern/doc/master/classTH1.html#a7e7d34c91d5ebab4fc9bba3ca47dabdd) class.
+In the above code, `"Gauss fit"` is the name of the fit and `"gaus"` is the pre-defined formula which is defined under [TFormula](https://root.cern/doc/master/classTFormula.html) class. In the `Fit` method of `TH1` class, the argument `"Q"` is a fit option for supressing the CLI output. These options are described in [TH1](https://root.cern/doc/master/classTH1.html#a7e7d34c91d5ebab4fc9bba3ca47dabdd) class.
