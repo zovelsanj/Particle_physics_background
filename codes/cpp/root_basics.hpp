@@ -16,6 +16,26 @@ class basicFeatures
     public:
         void getParams(TF1 *);
         void getLegends(std::map<const char *, const TObject*>, Int_t, Option_t *, Double_t, Double_t, Double_t, Double_t);
+
+        template<typename customFunc>
+        void customFunctions(customFunc my_func, Double_t p0, Double_t p1, const char *title,  const char *outpath=nullptr, const char *xlabel="x-axis", const char *ylabel="y-axis")
+        {
+            TCanvas *c1 = new TCanvas();
+
+            TF1 *custom_func = new TF1("func", my_func, 0, 10, 2);
+            custom_func->SetTitle(title);
+            custom_func->SetParameter(0, p0);
+            custom_func->SetParameter(1, p1);
+            
+            custom_func->GetXaxis()->SetTitle(xlabel);
+            custom_func->GetYaxis()->SetTitle(ylabel);
+            custom_func->Draw();
+
+            if (outpath!=nullptr)
+            {
+                c1->Print(outpath); //save plot as image
+            }
+        }
 };
 
 void basicFeatures::getParams(TF1* fit)
@@ -35,4 +55,3 @@ void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_has
         leg->AddEntry(it.second, it.first, opt);
     }
 }
-    
