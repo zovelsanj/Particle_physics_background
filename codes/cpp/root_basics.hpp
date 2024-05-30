@@ -5,6 +5,8 @@
 #include<TGraph.h>
 #include<TGraphErrors.h>
 #include<TLegend.h>
+#include<TArrow.h>
+#include<TLatex.h>
 
 #pragma once
 class basicFeatures
