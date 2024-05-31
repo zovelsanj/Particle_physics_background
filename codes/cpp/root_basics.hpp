@@ -7,6 +7,8 @@
 #include<TLegend.h>
 #include<TArrow.h>
 #include<TLatex.h>
+#include<TFile.h>
+#include<TBrowser.h>
 
 #pragma once
 class basicFeatures
@@ -16,6 +18,8 @@ class basicFeatures
     public:
         void getParams(TF1 *);
         void getLegends(std::map<const char *, const TObject*>, Int_t, Option_t *, Double_t, Double_t, Double_t, Double_t);
+        void writeRoot(const char *, void (*)());
+        void readRoot(const char *, bool);
 
         template<typename customFunc>
         void customFunctions(customFunc my_func, Double_t p0, Double_t p1, const char *title,  const char *outpath=nullptr, const char *xlabel="x-axis", const char *ylabel="y-axis")
@@ -54,4 +58,22 @@ void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_has
     {
         leg->AddEntry(it.second, it.first, opt);
     }
+}
+
+void basicFeatures::writeRoot(const char *outpath, void (*func)())
+{
+    TFile *file = new TFile(outpath, "RECREATE");
+    func();
+    file->Write();
+    file->Close();
+}
+
+void basicFeatures::readRoot(const char *rootpath, bool browse=false)
+{
+    TFile *file = new TFile(rootpath, "READ");
+    TH1F *hist = (TH1F*)file->Get("hist");
+    if (browse)
+        TBrowser *browser = new TBrowser("browser", "Read Rootfile demo");
+    else 
+        hist->Draw();
 }
