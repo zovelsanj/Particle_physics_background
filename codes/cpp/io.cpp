@@ -16,9 +16,25 @@ void histogram()
     hist->SetYTitle("Entries");
 }
 
+std::vector<std::tuple<Double_t, Double_t>> get_data(int N)
+{
+    TRandom *rn = new TRandom(31415);
+    std::vector<std::tuple<Double_t, Double_t>> data;
+    for (int i = 0; i < N; i++)
+    {
+        Double_t x = rn->Rndm(i);
+        Double_t y = rn->Rndm(x);
+        data.emplace_back(x, y);
+    }
+    return data;
+}
+
 void io()
 {
-    basicFeatures *b = new basicFeatures(); 
+    basicFeatures *b = new basicFeatures();
     b->writeRoot("output_test.root", &histogram);
     b->readRoot("output_test.root", true);
+    
+    std::vector<std::tuple<Double_t, Double_t>> data = get_data(5);
+    b->writeTree("output.root", data);
 }

@@ -9,6 +9,7 @@
 #include<TLatex.h>
 #include<TFile.h>
 #include<TBrowser.h>
+#include<TTree.h>
 
 #pragma once
 class basicFeatures
@@ -20,6 +21,7 @@ class basicFeatures
         void getLegends(std::map<const char *, const TObject*>, Int_t, Option_t *, Double_t, Double_t, Double_t, Double_t);
         void writeRoot(const char *, void (*)());
         void readRoot(const char *, bool);
+    void writeTree(const char *, std::vector<std::tuple<Double_t, Double_t>>);
 
         template<typename customFunc>
         void customFunctions(customFunc my_func, Double_t p0, Double_t p1, const char *title,  const char *outpath=nullptr, const char *xlabel="x-axis", const char *ylabel="y-axis")
@@ -76,4 +78,22 @@ void basicFeatures::readRoot(const char *rootpath, bool browse=false)
         TBrowser *browser = new TBrowser("browser", "Read Rootfile demo");
     else 
         hist->Draw();
+}
+
+void basicFeatures::writeTree(const char *outpath, std::vector<std::tuple<Double_t, Double_t>> data)
+{
+    TFile *file = new TFile(outpath, "RECREATE");
+    TTree *tree = new TTree("tree", "sample_tree");
+    Double_t x, y;
+    tree->Branch("x", &x, "x/D");
+    tree->Branch("y", &y, "y/D");
+
+    for (auto &itr : data)
+    {
+        auto [x, y] = itr;
+        std::cout << x << ", " << y << std::endl;
+        tree->Fill();
+    }
+    file->Write();
+    file->Close();
 }
