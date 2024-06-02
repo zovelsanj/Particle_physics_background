@@ -37,4 +37,5 @@ void io()
     
     std::vector<std::tuple<Double_t, Double_t>> data = get_data(5);
     b->writeTree("output.root", data);
+    b->readTree("output.root");
 }

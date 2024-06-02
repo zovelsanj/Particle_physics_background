@@ -21,7 +21,8 @@ class basicFeatures
         void getLegends(std::map<const char *, const TObject*>, Int_t, Option_t *, Double_t, Double_t, Double_t, Double_t);
         void writeRoot(const char *, void (*)());
         void readRoot(const char *, bool);
-    void writeTree(const char *, std::vector<std::tuple<Double_t, Double_t>>);
+        void writeTree(const char *, std::vector<std::tuple<Double_t, Double_t>>);
+        void readTree(const char *);
 
         template<typename customFunc>
         void customFunctions(customFunc my_func, Double_t p0, Double_t p1, const char *title,  const char *outpath=nullptr, const char *xlabel="x-axis", const char *ylabel="y-axis")
@@ -96,4 +97,25 @@ void basicFeatures::writeTree(const char *outpath, std::vector<std::tuple<Double
     }
     file->Write();
     file->Close();
+}
+
+void basicFeatures::readTree(const char *input_file)
+{
+    TFile *file = new TFile(input_file, "READ");
+    TTree *tree = (TTree*)file->Get("tree");
+    Double_t x, y;
+
+    tree->SetBranchAddress("x", &x);
+    tree->SetBranchAddress("y", &y);
+    int entries = tree->GetEntries();
+    std::cout << "entries: " << entries << std::endl;
+
+    TH1F *hist = new TH1F("hist", "tree histogram", 20, 0, 10);
+    for (int i = 0; i < entries; i++)
+    {
+        tree->GetEntry(i);
+        std::cout << "x " << x << ", y " << y << std::endl;
+        hist->Fill(x);
+    }
+    hist->Draw();
 }
