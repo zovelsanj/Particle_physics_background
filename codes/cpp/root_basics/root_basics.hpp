@@ -91,7 +91,9 @@ void basicFeatures::writeTree(const char *outpath, std::vector<std::tuple<Double
 
     for (auto &itr : data)
     {
-        auto [x, y] = itr;
+        auto [i, j] = itr;
+        x = i; 
+        y = j;
         std::cout << x << ", " << y << std::endl;
         tree->Fill();
     }
