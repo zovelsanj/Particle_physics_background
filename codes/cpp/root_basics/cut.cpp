@@ -14,7 +14,7 @@ std::vector<std::tuple<Double_t, Double_t>> get_data(int N, int scale = 1)
     return data;
 }
 
-void cut(const char *treepath)
+void cut_tree(const char *treepath)
 {
     TCut cut1 = "y > 5";
     TCut cut2 = "x > 5";
@@ -28,5 +28,5 @@ void cut()
     basicFeatures *b = new basicFeatures();
     std::vector<std::tuple<Double_t, Double_t>> data = get_data(1000, 10);
     b->writeTree("output.root", data);
-    cut("output.root");
+    cut_tree("output.root");
 }
