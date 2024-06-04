@@ -64,7 +64,7 @@ void contour_2d(TH2F *hist, Int_t xlow = 0, Int_t xup = 100, Int_t ylow = 0, Int
 void surface_2d(TH2F *hist, Int_t xlow = 0, Int_t xup = 100, Int_t ylow = 0, Int_t yup = 100)
 {
     TCanvas *canvas = new TCanvas("surfopt", "2D Contour", xlow, ylow, xup, yup);
-    canvas->Divide(2, 2);
+    canvas->Divide(3, 2);
     canvas->SetFillColor(kEllipse);
 
     TPaveLabel *pl = new TPaveLabel();
@@ -89,6 +89,16 @@ void surface_2d(TH2F *hist, Int_t xlow = 0, Int_t xup = 100, Int_t ylow = 0, Int
     gPad->SetGrid();
     pl->DrawPaveLabel(xlow, ylow, xup, yup, "SURF4", "brNDC");
 
+    canvas->cd(5);
+    hist->Draw("surf1pol");
+    gPad->SetGrid();
+    pl->DrawPaveLabel(xlow, ylow, xup, yup, "SURF4", "brNDC");
+
+    canvas->cd(6);
+    hist->Draw("surf1cyl");
+    gPad->SetGrid();
+    pl->DrawPaveLabel(xlow, ylow, xup, yup, "SURF4", "brNDC");
+
     canvas->Update();
 }
 
@@ -105,7 +115,7 @@ void plots_2d()
     TH2F *h2 = new TH2F("h2","Sample Contour Plot", xbins, xlow, xup, ybins, ylow, yup);
     h2->FillRandom("hist");
 
-    basic_plot_2d(1e7);
-    contour_2d(h2);
+    // basic_plot_2d(1e7);
+    // contour_2d(h2);
     surface_2d(h2);
 }
