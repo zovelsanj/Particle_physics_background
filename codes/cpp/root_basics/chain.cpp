@@ -19,13 +19,12 @@ void chain(std::string data_dir = "Particle_physics_background/codes/cpp/root_ba
     Int_t entries = chain->GetEntries();
     std::cout << "entries: " << entries << std::endl;
 
-    TH1F *hist = new TH1F("hist", "Chain Sample Plot", 100, 0, 1000);
+    TH1F *hist = new TH1F("hist", "Chain Sample Plot", 1000, 0, 1000);
     for (int i = 0; i < entries; i++)
     {
-        x = chain->GetEntry(i);
+        chain->GetEntry(i);
         hist->Fill(x);
     }
 
     hist->Draw();
-    
 }
