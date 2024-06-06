@@ -25,6 +25,7 @@ public:
     void writeTree(const char *, std::vector<std::tuple<Double_t, Double_t>>);
     void readTree(const char *);
     std::vector<std::string> glob_files(std::string, std::string);
+    void subplots(Int_t, Int_t, std::vector<const char *>, TObject *);
 
     template <typename customFunc>
     void customFunctions(customFunc my_func, Double_t p0, Double_t p1, const char *title, const char *outpath = nullptr, const char *xlabel = "x-axis", const char *ylabel = "y-axis")
@@ -139,4 +140,30 @@ std::vector<std::string> basicFeatures::glob_files(std::string dirname, std::str
 
     globfree(&glob_result);
     return files;
+}
+
+void basicFeatures::subplots(Int_t nx, Int_t ny, std::vector<const char *> draw_options, TObject *Tobj)
+{
+    TCanvas *canvas = new TCanvas();
+    canvas->Divide(nx, ny);
+
+    for (int i = 0; i < nx*ny; i++)
+    {
+        const char *plot_title;
+        if (i < draw_options.size())
+        {
+            plot_title = draw_options.at(i);
+            if (plot_title==std::string(""))
+                plot_title = "Default plot";
+        }
+        else
+            plot_title = ("Untitled plot " + std::to_string(i + 1)).c_str();
+
+        canvas->cd(i+1);
+        Tobj->Draw(draw_options.at(i));
+        TPaveText *pt = new TPaveText(0,0,.25,.1,"brNDC");
+        pt->AddText(plot_title);
+        pt->Draw();
+    }
+    canvas->Update();
 }
