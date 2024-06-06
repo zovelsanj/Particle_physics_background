@@ -53,6 +53,19 @@ Detailed documentation of graph library [TGraph](https://root.cern/doc/master/cl
 
 In the code above `SetMarkerStyle` and `SetMarkerSize` is an attribute of class [`TAttMarker`](https://root.cern/doc/master/classTAttMarker.html). It contains the marker attributes such as Marker Color, Marker Style, and Marker Size.
 
+## CLI Arguments
+Command line arguments on macros such as the following,
+```
+void func(int N, std::string str)
+{
+    std::cout << N << ", " << str << std::endl;
+}
+```
+can be passed as
+```
+root '<macro_finename>(<arg_int_val, "arg_str_val">)'
+```
+
 ## Curve Fitting
 Detailed documentation on curve fitting [TF1](https://root.cern/doc/master/classTF1.html) and [tutorials](https://root.cern/doc/master/group__tutorial__fit.html).
 
