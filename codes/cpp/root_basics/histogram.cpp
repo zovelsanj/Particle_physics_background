@@ -1,6 +1,5 @@
 #include "root_basics.hpp" //need not include the header when compiling with `root`
 #include <THStack.h>
-#include <TPaveText.h>
 
 TH1F *get_histogram(bool visualize = true)
 {
