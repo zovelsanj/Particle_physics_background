@@ -90,3 +90,19 @@ void basicFeatures::getLegends(std::map<const char *, const TObject*> legend_has
 }
 ```
 The above method adds the legend entries taking the `TObject` and `legend name` as hash map.
+
+## IO Operations
+IO operations of `root` files are handled by [`TFile`](https://root.cern/doc/master/classTFile.html) class. The following method reads a `root` file and draws the histogram (works only for histogram `root` for now, will be modfied later to encorporate others as well).
+```
+void basicFeatures::readRoot(const char *rootpath, bool browse = false)
+{
+    TFile *file = new TFile(rootpath, "READ");
+    TH1F *hist = (TH1F *)file->Get("hist");
+    if (browse)
+        TBrowser *browser = new TBrowser("browser", "Read Rootfile demo");
+    else
+        hist->Draw();
+}
+```
+`root` files can also be directly visualized from the `Browser` leveraging the [`TBrowser`](https://root.cern/doc/master/classTBrowser.html) class.
+![browser](../../images/tbrowser.png)
