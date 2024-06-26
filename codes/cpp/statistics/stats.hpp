@@ -22,7 +22,7 @@ public:
     void addModel(RooWorkspace *, Double_t, Double_t);
     void addData(RooWorkspace *, Int_t);
     void hypothesisTesting(RooWorkspace *);
-    void MakePlots(RooWorkspace *);
+    void plotTests(RooWorkspace *);
 };
 
 void rootStats::addModel(RooWorkspace *wspace, Double_t obs_low = 60.0, Double_t obs_high = 200.0)
@@ -42,7 +42,7 @@ void rootStats::addModel(RooWorkspace *wspace, Double_t obs_low = 60.0, Double_t
     // Background Model: Z+jets
     Double_t mZ_val = 91.2, mZ_min = 0, mZ_max = 100;
     RooRealVar mZ("mH", "m_{H}", mZ_val, mZ_min, mZ_max, unit);
-    RooRealVar sigma_bkg1("sigma1", "Width of Gaussian", 10, 6, 100);
+    RooRealVar sigma_bkg1("sigma2", "Width of Gaussian", 10, 6, 100);
     RooGaussian Zjj_model("Zjj_model", "Z+Jets Model", invMass, mZ, sigma_bkg1); // Ref_x, Ref_mean, Ref_sigma
     mZ.setConstant();                                                            // we know mZ
     sigma_bkg1.setConstant();                                                    // Let's assume we know the mass resolution
@@ -93,7 +93,7 @@ void rootStats::hypothesisTesting(RooWorkspace *wspace)
     RooStats::ProfileLikelihoodCalculator plc; //Profile Likelihood calculator for hypothesis testing
     plc.SetData(*wspace->data("data"));
 
-    //Null Hypothesis: set the parameters explicitly. No signal contribution, so mu=0
+    //Null Hypothesis (mu=0): set the parameters explicitly. No signal contribution.
     RooRealVar *mu = wspace->var("mu");
     RooArgSet poi(*mu); //Parameter of Interest
     RooArgSet *null_params = (RooArgSet *)poi.snapshot();   //using snapshot imports nullparams
@@ -105,4 +105,44 @@ void rootStats::hypothesisTesting(RooWorkspace *wspace)
     RooStats::HypoTestResult *htest_result = plc.GetHypoTest();
     std::cout << "The p-value for Null Hypothesis is " << htest_result->NullPValue() << std::endl;
     std::cout << "Corresponding to a significance of " << htest_result->Significance() << std::endl;
+}
+
+void rootStats::plotTests(RooWorkspace *wspace)
+{
+    RooAbsPdf *model = wspace->pdf("model");
+    RooAbsPdf *sig_model = wspace->pdf("sig_model");
+    RooAbsPdf *Zjj_model = wspace->pdf("Zjj_model");
+    RooAbsPdf *QCD_model = wspace->pdf("QCD_model");
+
+    RooRealVar *mu = wspace->var("mu");
+    RooRealVar *invMass = wspace->var("invMass");
+    RooAbsData *data = wspace->data("data");
+
+    //Alternative Hypothesis H_1 (mu not 0) plots
+    mu->setConstant(kFALSE);
+    model->fitTo(*data, RooFit::Save(kTRUE), RooFit::Minos(kFALSE), RooFit::Hesse(kFALSE),RooFit::PrintLevel(-1));
+
+    new TCanvas();
+    RooPlot *frame = invMass->frame();
+    data->plotOn(frame);
+    model->plotOn(frame);
+    model->plotOn(frame, RooFit::Components(*sig_model), RooFit::LineStyle(kDashed), RooFit::LineColor(kRed));
+    model->plotOn(frame, RooFit::Components(*Zjj_model), RooFit::LineStyle(kDashed), RooFit::LineColor(kBlack));
+    model->plotOn(frame, RooFit::Components(*QCD_model), RooFit::LineStyle(kDashed), RooFit::LineColor(kGreen));
+    frame->SetTitle("Fit to Signal+Background Model (H_{1})");
+    frame->Draw();
+
+    // //Null Hypothesis H_0 (mu = 0) plots
+    mu->setVal(0);
+    mu->setConstant(kTRUE);
+    model->fitTo(*data, RooFit::Save(kTRUE), RooFit::Minos(kFALSE), RooFit::Hesse(kFALSE),RooFit::PrintLevel(-1));
+    
+    new TCanvas();
+    RooPlot *frame_bkg = invMass->frame();
+    data->plotOn(frame_bkg, RooFit::DataError(RooAbsData::SumW2));
+    model->plotOn(frame_bkg);
+    model->plotOn(frame_bkg, RooFit::Components(*Zjj_model), RooFit::LineStyle(kSolid), RooFit::LineColor(kBlack));
+    model->plotOn(frame_bkg, RooFit::Components(*QCD_model), RooFit::LineStyle(kSolid), RooFit::LineColor(kGreen));
+    frame_bkg->SetTitle("Fit to Background-only Model (H_{0})");
+    frame_bkg->Draw();    
 }
