@@ -14,6 +14,8 @@
 #include <RooStats/ProfileLikelihoodCalculator.h>
 #include <RooStats/HypoTestResult.h>
 
+#include<TCanvas.h>
+
 class rootStats
 {
 private:
