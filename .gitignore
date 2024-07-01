@@ -6,3 +6,11 @@ codes/python/file.png
 codes/python/test.py
 codes/python/venv/
 data/
+codes/cpp/root_basics/out*
+documentation/main.aux
+documentation/main.fdb_latexmk
+documentation/main.fls
+documentation/main.log
+documentation/main.out
+documentation/main.synctex.gz
+documentation/sections/bsm.tex
