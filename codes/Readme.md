@@ -59,6 +59,43 @@ To fix this, in `.config>Code>User>settings.json`, I included the following fiel
 ]
 ```
 
+## Installation in Mac
+For installation in Mac, you can use `brew` to install `ROOT` as follows:
+```
+brew install root
+```
+
+For Mac, the root installation path is `/opt/homebrew/include/root/`. Add this path to the `C/C++: Include Path` in VS Code.
+
+For PyROOT, its a little different in Mac than in Linux. You will first need to make sure that the `Python` supported by `ROOT` is the same as the `Python` you are using. Check that with
+``` 
+root-config --python-version
+```
+In the case of version mismatch, you have get error something like this:
+```
+>>> import ROOT
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/opt/homebrew/Cellar/root/6.32.08/lib/root/ROOT/__init__.py", line 25, in <module>
+    import cppyy
+  File "/opt/homebrew/Cellar/root/6.32.08/lib/root/cppyy/__init__.py", line 81, in <module>
+    from ._cpython_cppyy import *
+  File "/opt/homebrew/Cellar/root/6.32.08/lib/root/cppyy/_cpython_cppyy.py", line 22, in <module>
+    import libcppyy as _backend
+ImportError: dlopen(/opt/homebrew/Cellar/root/6.32.08/lib/root/libcppyy.so, 0x0002): symbol not found in flat namespace '_PyObject_DelAttr'
+```
+
+After you installed the same version of `Python` using `brew`, you can use the PyROOT at something like this:
+```
+/opt/homebrew/opt/python@3.13/bin/python3.13
+```
+In my case, `ROOT` Python version was `3.13.1`. 
+
+When creating a virtual environment, if the Python inside the virtual environment doesn't link with the global Python, create a virtual environment with the global Python as follows:
+```
+/opt/homebrew/opt/python@3.13/bin/python3.13 -m venv venv_tct --system-site-packages
+```
+
 # Useful References
 1. [C++ codes documentation](https://root.cern/doc/master/group__tutorial__hist.html)
 2. [ROOT Primer](https://root.cern/primer/#interpretation-and-compilation)
